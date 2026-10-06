@@ -1,48 +1,32 @@
 # Apuração Monitor
 
-Monitor pessoal da apuração eleitoral brasileira (TSE) com:
+Dashboard pessoal da apuração eleitoral (TSE) com gráfico minuto a minuto e projeção do % final pela **trajetória / abertura das linhas**.
 
-1. **Gráfico minuto a minuto** — % de votos válidos de cada candidato ao longo do % de seções (estilo TV).
-2. **Projeção pela trajetória / abertura das linhas** — lê a inclinação de cada curva e se o gap entre 1º e 2º está abrindo ou fechando, e extrapola até 100% das seções.
-3. Baseline linear e (em seguida) modelo municipal forte.
+## Abrir (sem rodar nada)
 
-EUA / Fox News ficam para uma fase posterior (sem API pública estável).
+**https://ntwkst.github.io/apuracao-monitor/**
 
-## Subir local
+- Já aponta para o **2º turno** (presidente `6258`, estaduais `6260`).
+- Enquanto o TSE não publicar o arquivo do dia 25/10, a página mostra “dashboard pronta”.
+- Com a aba aberta na noite da apuração, coleta sozinha a cada 30s (histórico no navegador) e projeta o final.
 
-```bash
-npm install
-npm --prefix web install
+Proxy: edge function `apuracao-tse` no Supabase site-ntwkst.
 
-# Noite sintética (1º turno 2026) para testar gráfico + projeção
-npm run sim
-
-# API
-npm run dev
-
-# Em outro terminal: dashboard
-npm run web:dev
-```
-
-Dashboard: http://localhost:5177  
-API: http://localhost:8787
-
-### Coleta ao vivo do TSE
+## Dev local (opcional)
 
 ```bash
-npm run poller:once   # um ciclo
-npm run poller        # loop ~45s
+npm install && npm --prefix web install
+# API local + simulação (só se quiser testar offline)
+npm run sim && npm run dev
+# Dashboard (base / para local):
+VITE_BASE=/ npm --prefix web run dev
 ```
 
-Respeita o CDN do TSE (intervalo configurável via `POLL_INTERVAL_MS`).
+## Códigos TSE 2026
 
-## Corridas padrão
+| Cargo | 1º turno | 2º turno (cdt2) |
+|-------|----------|-----------------|
+| Presidente (federal) | 6257 | **6258** |
+| Governador (estadual) | 6259 | **6260** |
 
-- `2026-t1-presidente-br` (eleição `6257`)
-- `2026-t1-governador-ms` (eleição `6259`)
-
-Ajuste em `src/tse/client.ts` (`DEFAULT_RACES`) para o 2º turno quando o TSE publicar os códigos.
-
-## Disclaimer
-
-A projeção **não prevê voto**. Ela estima o total ao fim da apuração a partir do ritmo atual das linhas e da composição regional que ainda falta. Use com faixa de incerteza.
+MS elegeu governador no 1º turno (Riedel); 2º turno de governador só onde houver disputa (ex.: RJ).

@@ -336,6 +336,26 @@ export async function fetchOfficialSnapshot(cfg: RaceConfig): Promise<OfficialSn
 
 export const DEFAULT_RACES: RaceConfig[] = [
   {
+    raceKey: "2026-t2-presidente-br",
+    cargo: "presidente",
+    abrangencia: "BR",
+    eleicaoCodigo: "6258", // cdt2 de 6257 no ele-c.json
+    ciclo: "ele2026",
+    turno: 2,
+    cargoCodigo: "0001",
+    enabled: true,
+  },
+  {
+    raceKey: "2026-t2-governador-rj",
+    cargo: "governador",
+    abrangencia: "RJ",
+    eleicaoCodigo: "6260", // cdt2 de 6259
+    ciclo: "ele2026",
+    turno: 2,
+    cargoCodigo: "0003",
+    enabled: true,
+  },
+  {
     raceKey: "2026-t1-presidente-br",
     cargo: "presidente",
     abrangencia: "BR",
@@ -343,16 +363,6 @@ export const DEFAULT_RACES: RaceConfig[] = [
     ciclo: "ele2026",
     turno: 1,
     cargoCodigo: "0001",
-    enabled: true,
-  },
-  {
-    raceKey: "2026-t1-governador-ms",
-    cargo: "governador",
-    abrangencia: "MS",
-    eleicaoCodigo: "6259",
-    ciclo: "ele2026",
-    turno: 1,
-    cargoCodigo: "0003",
     enabled: true,
   },
 ];
