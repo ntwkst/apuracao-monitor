@@ -3,7 +3,6 @@ import { ConsensusCard, MethodBoard } from "./components/MethodBoard";
 import { DeskIsland } from "./components/DeskIsland";
 import { DuelHero } from "./components/DuelHero";
 import { ProjectionRail } from "./components/ProjectionRail";
-import { SiteFooter } from "./components/SiteFooter";
 import { Ticker } from "./components/Ticker";
 import { TrajectoryChart } from "./components/TrajectoryChart";
 import type { Trajetoria } from "./lib/api";
@@ -25,6 +24,14 @@ import {
   type SimT2Payload,
 } from "./lib/sim";
 import {
+  loadT1Replay,
+  t1PointToSnapshot,
+  t1SeriesToPoints,
+  T1_REPLAY_RACE,
+  type T1ReplayMeta,
+  type T1ReplayPayload,
+} from "./lib/t1-replay";
+import {
   buildProjectionSeries,
   projectByTrajectory,
 } from "./lib/trajectory";
@@ -37,15 +44,17 @@ type RaceOpt = {
   turno: number;
   abrangencia: string;
   sim?: boolean;
+  t1Replay?: boolean;
 };
 
 const RACES: RaceOpt[] = [
   {
-    id: "2026-t2-presidente-br",
-    label: "Presidente · 2º turno (25/10)",
+    id: T1_REPLAY_RACE,
+    label: "Presidente · 1º turno REPLAY (LinhaDoTempo)",
     cargo: "presidente",
-    turno: 2,
+    turno: 1,
     abrangencia: "BR",
+    t1Replay: true,
   },
   {
     id: simRaceKey(),
@@ -56,23 +65,23 @@ const RACES: RaceOpt[] = [
     sim: true,
   },
   {
+    id: "2026-t2-presidente-br",
+    label: "Presidente · 2º turno (25/10)",
+    cargo: "presidente",
+    turno: 2,
+    abrangencia: "BR",
+  },
+  {
     id: "2026-t2-governador-rj",
     label: "Governador RJ · 2º turno",
     cargo: "governador",
     turno: 2,
     abrangencia: "RJ",
   },
-  {
-    id: "2026-t1-presidente-br",
-    label: "Presidente · 1º turno (histórico)",
-    cargo: "presidente",
-    turno: 1,
-    abrangencia: "BR",
-  },
 ];
 
 export function App() {
-  const [raceId, setRaceId] = useState(simRaceKey());
+  const [raceId, setRaceId] = useState(T1_REPLAY_RACE);
   const race = RACES.find((r) => r.id === raceId) ?? RACES[0]!;
   const [snap, setSnap] = useState<OfficialSnapshot | null>(null);
   const [series, setSeries] = useState<SeriesPoint[]>([]);
@@ -82,15 +91,27 @@ export function App() {
   const [codes, setCodes] = useState<string>("");
   const [tick, setTick] = useState(0);
   const [simPayload, setSimPayload] = useState<SimT2Payload | null>(null);
-  const [simIndex, setSimIndex] = useState(0);
+  const [t1Payload, setT1Payload] = useState<T1ReplayPayload | null>(null);
+  const [replayIndex, setReplayIndex] = useState(0);
 
   const applySimIndex = useCallback((payload: SimT2Payload, index: number) => {
     const clamped = Math.max(0, Math.min(index, payload.series.length - 1));
     const point = payload.series[clamped]!;
-    setSimIndex(clamped);
+    setReplayIndex(clamped);
     setSnap(simPointToSnapshot(point));
     setSeries(simSeriesToPoints(payload.series, clamped));
     setUfs(buildSimUfBreakdown(point.pctSecoes, payload.meta));
+    setWaiting(null);
+    setError(null);
+  }, []);
+
+  const applyT1Index = useCallback((payload: T1ReplayPayload, index: number) => {
+    const clamped = Math.max(0, Math.min(index, payload.series.length - 1));
+    const point = payload.series[clamped]!;
+    setReplayIndex(clamped);
+    setSnap(t1PointToSnapshot(point));
+    setSeries(t1SeriesToPoints(payload.series, clamped));
+    setUfs(null);
     setWaiting(null);
     setError(null);
   }, []);
@@ -145,6 +166,27 @@ export function App() {
     setUfs(null);
     setWaiting(null);
     setError(null);
+    setSimPayload(null);
+    setT1Payload(null);
+
+    if (race.t1Replay) {
+      let cancelled = false;
+      void loadT1Replay()
+        .then((payload) => {
+          if (cancelled) return;
+          setT1Payload(payload);
+          // começa ~meio da noite (~55%) para já ver linhas + projeção
+          const startAt = Math.max(0, Math.floor(payload.series.length * 0.45) - 1);
+          applyT1Index(payload, startAt);
+        })
+        .catch((err) => {
+          if (cancelled) return;
+          setError(err instanceof Error ? err.message : "falha ao carregar replay T1");
+        });
+      return () => {
+        cancelled = true;
+      };
+    }
 
     if (race.sim) {
       let cancelled = false;
@@ -152,31 +194,25 @@ export function App() {
         .then((payload) => {
           if (cancelled) return;
           setSimPayload(payload);
-          const startAt = Math.max(
-            0,
-            Math.floor(payload.series.length * 0.55) - 1,
-          );
+          const startAt = Math.max(0, Math.floor(payload.series.length * 0.55) - 1);
           applySimIndex(payload, startAt);
         })
         .catch((err) => {
           if (cancelled) return;
           setError(err instanceof Error ? err.message : "falha ao carregar simulação");
-          setSnap(null);
-          setSeries([]);
         });
       return () => {
         cancelled = true;
       };
     }
 
-    setSimPayload(null);
     void refreshLive();
     const id = window.setInterval(() => {
       void refreshLive();
       setTick((t) => t + 1);
     }, 30_000);
     return () => window.clearInterval(id);
-  }, [race, refreshLive, applySimIndex]);
+  }, [race, refreshLive, applySimIndex, applyT1Index]);
 
   const traj = useMemo((): Trajetoria | null => {
     if (!snap) return null;
@@ -196,8 +232,10 @@ export function App() {
 
   const ensemble = useMemo(() => {
     if (!snap) return null;
-    return runAllMethods({ snap, series, ufs });
-  }, [snap, series, ufs]);
+    // prior T2 só no sim / 2º turno; no replay T1 não aplica 52/47
+    const pollPrior = race.t1Replay ? {} : undefined;
+    return runAllMethods({ snap, series, ufs, pollPrior });
+  }, [snap, series, ufs, race.t1Replay]);
 
   const serieProjecao = useMemo(() => {
     if (!snap || !traj) return [];
@@ -213,16 +251,34 @@ export function App() {
   }, [traj]);
 
   const simMeta: SimT2Meta | null = simPayload?.meta ?? null;
-  const simPoint = simPayload?.series[simIndex];
+  const t1Meta: T1ReplayMeta | null = t1Payload?.meta ?? null;
+  const simPoint = simPayload?.series[replayIndex];
+  const t1Point = t1Payload?.series[replayIndex];
 
-  const mastMode = race.sim ? "sim" : snap ? "live" : "wait";
-  const mastMeta = race.sim
-    ? "2º turno · cenário pesquisas"
-    : codes || undefined;
+  const mastMode = race.sim || race.t1Replay ? "sim" : snap ? "live" : "wait";
+  const mastMeta = race.t1Replay
+    ? "1º turno · replay LinhaDoTempo"
+    : race.sim
+      ? "2º turno · cenário pesquisas"
+      : codes || undefined;
 
-  const tickerTag = race.sim ? "SIM" : snap ? "TSE" : "DESK";
+  const tickerTag = race.t1Replay ? "T1" : race.sim ? "SIM" : snap ? "TSE" : "DESK";
   const tickerText = (() => {
     if (error) return error;
+    if (race.t1Replay && t1Meta && ensemble) {
+      const c = ensemble.consensus;
+      return (
+        <>
+          <strong>
+            {t1Point?.hora?.slice(0, 5) ?? "—"} · {t1Point?.pctSecoes.toFixed(1) ?? "—"}% seções
+          </strong>
+          {" · "}
+          {c.empate ? `consenso empate ${c.placar}` : `previsto ${c.nomeLider ?? "—"} (${c.placar})`}
+          {" · final real F "}
+          {t1Meta.final.flavio.toFixed(2)}% / L {t1Meta.final.lula.toFixed(2)}%
+        </>
+      );
+    }
     if (race.sim && simMeta && ensemble) {
       const c = ensemble.consensus;
       return (
@@ -273,6 +329,17 @@ export function App() {
       <div className="desk">
         {error && <p className="desk-error">{error}</p>}
 
+        {race.t1Replay && t1Meta && (
+          <div className="sim-strip">
+            <h2>{t1Meta.titulo}</h2>
+            <p>{t1Meta.nota}</p>
+            <p>
+              Final oficial: Flávio {t1Meta.final.flavio.toFixed(2)}% · Lula{" "}
+              {t1Meta.final.lula.toFixed(2)}% · {t1Meta.pontos} pontos de avanço de seções.
+            </p>
+          </div>
+        )}
+
         {race.sim && simMeta && (
           <div className="sim-strip">
             <h2>{simMeta.titulo}</h2>
@@ -299,11 +366,27 @@ export function App() {
 
         {snap && traj && ensemble && (
           <>
-            {/* Previsão primeiro — pedido do usuário */}
             <ConsensusCard consensus={ensemble.consensus} />
             <MethodBoard methods={ensemble.methods} />
 
             <DuelHero snap={snap} traj={traj} />
+
+            {race.t1Replay && t1Payload && (
+              <label className="sim-scrub sim-strip">
+                <span className="label">
+                  Andamento da apuração · {t1Point?.hora?.slice(0, 5) ?? "—"} ·{" "}
+                  {t1Point?.pctSecoes.toFixed(1) ?? "—"}% seções
+                  {t1Point?.origem ? ` · ${t1Point.origem}` : ""}
+                </span>
+                <input
+                  type="range"
+                  min={0}
+                  max={t1Payload.series.length - 1}
+                  value={replayIndex}
+                  onChange={(e) => applyT1Index(t1Payload, Number(e.target.value))}
+                />
+              </label>
+            )}
 
             {race.sim && simPayload && (
               <label className="sim-scrub sim-strip">
@@ -315,7 +398,7 @@ export function App() {
                   type="range"
                   min={0}
                   max={simPayload.series.length - 1}
-                  value={simIndex}
+                  value={replayIndex}
                   onChange={(e) => applySimIndex(simPayload, Number(e.target.value))}
                 />
               </label>
@@ -325,7 +408,7 @@ export function App() {
               <section className="panel-block">
                 <div className="panel-head">
                   <h2>Trajetória</h2>
-                  <span className="hint">% válidos × % seções</span>
+                  <span className="hint">% válidos × % seções · linhas oficiais + projeção</span>
                 </div>
                 <div className="panel-body">
                   {series.length < 2 ? (
@@ -340,7 +423,8 @@ export function App() {
                     />
                   )}
                   <p className="panel-note">
-                    Cheia = oficial. Pontilhada = extrapolação até 100% das seções.
+                    Cheia = oficial até o momento do scrubber. Pontilhada = o que o sistema
+                    projetava para 100% das seções naquele instante.
                   </p>
                 </div>
               </section>
@@ -352,7 +436,6 @@ export function App() {
       </div>
 
       <Ticker tag={tickerTag} text={tickerText} />
-      <SiteFooter />
     </>
   );
 }
