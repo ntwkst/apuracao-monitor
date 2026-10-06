@@ -9,6 +9,7 @@
     "poller": "tsx src/poller/run.ts",
     "poller:once": "tsx src/poller/run.ts --once",
     "sim": "tsx scripts/simulate-night.ts",
+    "sim:t2": "tsx scripts/simulate-t2-from-polls.ts",
     "typecheck": "tsc --noEmit",
     "web:dev": "npm --prefix web run dev",
     "web:build": "npm --prefix web run build",

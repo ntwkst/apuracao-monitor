@@ -1,0 +1,2352 @@
+{
+  "meta": {
+    "titulo": "2º turno simulado — Flávio × Lula",
+    "premisaAbstencao": "Abstenção 1º turno 21.08% → 2º turno 20.38% (−0,7 pp)",
+    "pesquisas": [
+      {
+        "nome": "Palver 29/09",
+        "flavio": 51.087,
+        "lula": 48.913
+      },
+      {
+        "nome": "GERP 29/09",
+        "flavio": 53.763,
+        "lula": 46.237
+      },
+      {
+        "nome": "Futura 30/09",
+        "flavio": 52.973,
+        "lula": 47.027
+      },
+      {
+        "nome": "Veritá 06/10",
+        "flavio": 51.56,
+        "lula": 48.44
+      }
+    ],
+    "mediaValidos": {
+      "flavio": 52.345749999999995,
+      "lula": 47.654250000000005
+    },
+    "totais": {
+      "eleitorado": 158745502,
+      "comparecimento": 126387054,
+      "validos": 120359007,
+      "votosFlavio": 63002825,
+      "votosLula": 57356182,
+      "pctFlavio": 52.345749999999995,
+      "pctLula": 47.654250000000005
+    },
+    "transferencia": {
+      "novosVotosValidos": 1058219,
+      "terceiraVia": 9316747,
+      "extraFlavio": 6898322,
+      "extraLula": 3476644,
+      "shareFlavioDoExtra": 0.6649006849757387,
+      "poolAproximado": 10374966
+    },
+    "nota": "Simulação didática: média Palver/GERP/Futura/Veritá nos válidos + abstenção −0,7 pp. Não é previsão oficial."
+  },
+  "series": [
+    {
+      "t": "2026-10-25T17:03:00.000-03:00",
+      "pctSecoes": 2.1676390700402948,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 55.52304778667578,
+          "votos": 1448568
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 44.47695221332422,
+          "votos": 1160381
+        }
+      ],
+      "secoesApuradas": 10822,
+      "secoesTotal": 499248,
+      "votosValidos": 2608949,
+      "minutesFromStart": 3,
+      "hora": "17:03:00"
+    },
+    {
+      "t": "2026-10-25T17:05:00.000-03:00",
+      "pctSecoes": 3.6045150008867877,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 55.38355755795165,
+          "votos": 2402737
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 44.61644244204835,
+          "votos": 1935621
+        }
+      ],
+      "secoesApuradas": 17995,
+      "secoesTotal": 499248,
+      "votosValidos": 4338358,
+      "minutesFromStart": 5,
+      "hora": "17:05:00"
+    },
+    {
+      "t": "2026-10-25T17:07:00.000-03:00",
+      "pctSecoes": 5.034774387457297,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 55.250763886092685,
+          "votos": 3348088
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 44.749236113907315,
+          "votos": 2711716
+        }
+      ],
+      "secoesApuradas": 25136,
+      "secoesTotal": 499248,
+      "votosValidos": 6059804,
+      "minutesFromStart": 7,
+      "hora": "17:07:00"
+    },
+    {
+      "t": "2026-10-25T17:09:00.000-03:00",
+      "pctSecoes": 6.4583796053309666,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 55.12436123820666,
+          "votos": 4284950
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 44.87563876179334,
+          "votos": 3488292
+        }
+      ],
+      "secoesApuradas": 32243,
+      "secoesTotal": 499248,
+      "votosValidos": 7773242,
+      "minutesFromStart": 9,
+      "hora": "17:09:00"
+    },
+    {
+      "t": "2026-10-25T17:11:00.000-03:00",
+      "pctSecoes": 7.875292420829815,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 55.004006910707716,
+          "votos": 5213623
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 44.995993089292284,
+          "votos": 4265001
+        }
+      ],
+      "secoesApuradas": 39317,
+      "secoesTotal": 499248,
+      "votosValidos": 9478624,
+      "minutesFromStart": 11,
+      "hora": "17:11:00"
+    },
+    {
+      "t": "2026-10-25T17:13:00.000-03:00",
+      "pctSecoes": 9.285473974616165,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.88941207798492,
+          "votos": 6134388
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.11058792201508,
+          "votos": 5041516
+        }
+      ],
+      "secoesApuradas": 46358,
+      "secoesTotal": 499248,
+      "votosValidos": 11175904,
+      "minutesFromStart": 13,
+      "hora": "17:13:00"
+    },
+    {
+      "t": "2026-10-25T17:15:00.000-03:00",
+      "pctSecoes": 10.688884764668883,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.7802664524219,
+          "votos": 7047501
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.2197335475781,
+          "votos": 5817535
+        }
+      ],
+      "secoesApuradas": 53364,
+      "secoesTotal": 499248,
+      "votosValidos": 12865036,
+      "minutesFromStart": 15,
+      "hora": "17:15:00"
+    },
+    {
+      "t": "2026-10-25T17:17:00.000-03:00",
+      "pctSecoes": 12.085484628607512,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.67630241752887,
+          "votos": 7953198
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.32369758247113,
+          "votos": 6592771
+        }
+      ],
+      "secoesApuradas": 60337,
+      "secoesTotal": 499248,
+      "votosValidos": 14545969,
+      "minutesFromStart": 17,
+      "hora": "17:17:00"
+    },
+    {
+      "t": "2026-10-25T17:19:00.000-03:00",
+      "pctSecoes": 13.47523272533252,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.57725350361954,
+          "votos": 8851697
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.42274649638046,
+          "votos": 7366959
+        }
+      ],
+      "secoesApuradas": 67275,
+      "secoesTotal": 499248,
+      "votosValidos": 16218656,
+      "minutesFromStart": 19,
+      "hora": "17:19:00"
+    },
+    {
+      "t": "2026-10-25T17:21:00.000-03:00",
+      "pctSecoes": 14.858087515946917,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.482874199234615,
+          "votos": 9743198
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.517125800765385,
+          "votos": 8139849
+        }
+      ],
+      "secoesApuradas": 74179,
+      "secoesTotal": 499248,
+      "votosValidos": 17883047,
+      "minutesFromStart": 21,
+      "hora": "17:21:00"
+    },
+    {
+      "t": "2026-10-25T17:23:00.000-03:00",
+      "pctSecoes": 16.234006743922947,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.39292998767752,
+          "votos": 10627883
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.60707001232248,
+          "votos": 8911206
+        }
+      ],
+      "secoesApuradas": 81048,
+      "secoesTotal": 499248,
+      "votosValidos": 19539089,
+      "minutesFromStart": 23,
+      "hora": "17:23:00"
+    },
+    {
+      "t": "2026-10-25T17:25:00.000-03:00",
+      "pctSecoes": 17.602947414475167,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.307197811007484,
+          "votos": 11505921
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.692802188992516,
+          "votos": 9680812
+        }
+      ],
+      "secoesApuradas": 87882,
+      "secoesTotal": 499248,
+      "votosValidos": 21186733,
+      "minutesFromStart": 25,
+      "hora": "17:25:00"
+    },
+    {
+      "t": "2026-10-25T17:27:00.000-03:00",
+      "pctSecoes": 18.964865773098737,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.22547188013068,
+          "votos": 12377465
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.77452811986932,
+          "votos": 10448459
+        }
+      ],
+      "secoesApuradas": 94682,
+      "secoesTotal": 499248,
+      "votosValidos": 22825924,
+      "minutesFromStart": 27,
+      "hora": "17:27:00"
+    },
+    {
+      "t": "2026-10-25T17:29:00.000-03:00",
+      "pctSecoes": 20.31971728322898,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.14754538752509,
+          "votos": 13242654
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.85245461247491,
+          "votos": 11213956
+        }
+      ],
+      "secoesApuradas": 101446,
+      "secoesTotal": 499248,
+      "votosValidos": 24456610,
+      "minutesFromStart": 29,
+      "hora": "17:29:00"
+    },
+    {
+      "t": "2026-10-25T17:31:00.000-03:00",
+      "pctSecoes": 21.667456602975776,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.07323805877708,
+          "votos": 14101617
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.92676194122292,
+          "votos": 11977119
+        }
+      ],
+      "secoesApuradas": 108174,
+      "secoesTotal": 499248,
+      "votosValidos": 26078736,
+      "minutesFromStart": 31,
+      "hora": "17:31:00"
+    },
+    {
+      "t": "2026-10-25T17:33:00.000-03:00",
+      "pctSecoes": 23.00803756088301,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 54.00236224970701,
+          "votos": 14954467
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 45.99763775029299,
+          "votos": 12737779
+        }
+      ],
+      "secoesApuradas": 114867,
+      "secoesTotal": 499248,
+      "votosValidos": 27692246,
+      "minutesFromStart": 33,
+      "hora": "17:33:00"
+    },
+    {
+      "t": "2026-10-25T17:35:00.000-03:00",
+      "pctSecoes": 24.341413130659983,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.934751797644836,
+          "votos": 15801309
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.065248202355164,
+          "votos": 13495774
+        }
+      ],
+      "secoesApuradas": 121524,
+      "secoesTotal": 499248,
+      "votosValidos": 29297083,
+      "minutesFromStart": 35,
+      "hora": "17:35:00"
+    },
+    {
+      "t": "2026-10-25T17:37:00.000-03:00",
+      "pctSecoes": 25.667535404828367,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.87024927272809,
+          "votos": 16642239
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.12975072727191,
+          "votos": 14250952
+        }
+      ],
+      "secoesApuradas": 128145,
+      "secoesTotal": 499248,
+      "votosValidos": 30893191,
+      "minutesFromStart": 37,
+      "hora": "17:37:00"
+    },
+    {
+      "t": "2026-10-25T17:39:00.000-03:00",
+      "pctSecoes": 26.986355567224308,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.808696353597895,
+          "votos": 17477339
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.191303646402105,
+          "votos": 15003171
+        }
+      ],
+      "secoesApuradas": 134729,
+      "secoesTotal": 499248,
+      "votosValidos": 32480510,
+      "minutesFromStart": 39,
+      "hora": "17:39:00"
+    },
+    {
+      "t": "2026-10-25T17:41:00.000-03:00",
+      "pctSecoes": 28.297823864291004,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.7499508206059,
+          "votos": 18306685
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.2500491793941,
+          "votos": 15752295
+        }
+      ],
+      "secoesApuradas": 141276,
+      "secoesTotal": 499248,
+      "votosValidos": 34058980,
+      "minutesFromStart": 41,
+      "hora": "17:41:00"
+    },
+    {
+      "t": "2026-10-25T17:43:00.000-03:00",
+      "pctSecoes": 29.601889575092954,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.6938785591551,
+          "votos": 19130345
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.3061214408449,
+          "votos": 16498195
+        }
+      ],
+      "secoesApuradas": 147787,
+      "secoesTotal": 499248,
+      "votosValidos": 35628540,
+      "minutesFromStart": 43,
+      "hora": "17:43:00"
+    },
+    {
+      "t": "2026-10-25T17:45:00.000-03:00",
+      "pctSecoes": 30.898500979977683,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.640344736226545,
+          "votos": 19948377
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.359655263773455,
+          "votos": 17240752
+        }
+      ],
+      "secoesApuradas": 154260,
+      "secoesTotal": 499248,
+      "votosValidos": 37189129,
+      "minutesFromStart": 45,
+      "hora": "17:45:00"
+    },
+    {
+      "t": "2026-10-25T17:47:00.000-03:00",
+      "pctSecoes": 32.18760532780603,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.589229533956065,
+          "votos": 20760833
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.410770466043935,
+          "votos": 17979849
+        }
+      ],
+      "secoesApuradas": 160696,
+      "secoesTotal": 499248,
+      "votosValidos": 38740682,
+      "minutesFromStart": 47,
+      "hora": "17:47:00"
+    },
+    {
+      "t": "2026-10-25T17:49:00.000-03:00",
+      "pctSecoes": 33.46914880166592,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.540413376466354,
+          "votos": 21567757
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.459586623533646,
+          "votos": 18715378
+        }
+      ],
+      "secoesApuradas": 167094,
+      "secoesTotal": 499248,
+      "votosValidos": 40283135,
+      "minutesFromStart": 49,
+      "hora": "17:49:00"
+    },
+    {
+      "t": "2026-10-25T17:51:00.000-03:00",
+      "pctSecoes": 34.74307648297859,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.49378767987371,
+          "votos": 22369188
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.50621232012629,
+          "votos": 19447234
+        }
+      ],
+      "secoesApuradas": 173454,
+      "secoesTotal": 499248,
+      "votosValidos": 41816422,
+      "minutesFromStart": 51,
+      "hora": "17:51:00"
+    },
+    {
+      "t": "2026-10-25T17:53:00.000-03:00",
+      "pctSecoes": 36.00933231389918,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.44924576853391,
+          "votos": 23165157
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.55075423146609,
+          "votos": 20175318
+        }
+      ],
+      "secoesApuradas": 179776,
+      "secoesTotal": 499248,
+      "votosValidos": 43340475,
+      "minutesFromStart": 53,
+      "hora": "17:53:00"
+    },
+    {
+      "t": "2026-10-25T17:55:00.000-03:00",
+      "pctSecoes": 37.26785905790676,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.40669007902647,
+          "votos": 23955691
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.59330992097353,
+          "votos": 20899534
+        }
+      ],
+      "secoesApuradas": 186059,
+      "secoesTotal": 499248,
+      "votosValidos": 44855225,
+      "minutesFromStart": 55,
+      "hora": "17:55:00"
+    },
+    {
+      "t": "2026-10-25T17:57:00.000-03:00",
+      "pctSecoes": 38.51859825847003,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.36602186485844,
+          "votos": 24740809
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.63397813514156,
+          "votos": 21619793
+        }
+      ],
+      "secoesApuradas": 192303,
+      "secoesTotal": 499248,
+      "votosValidos": 46360602,
+      "minutesFromStart": 57,
+      "hora": "17:57:00"
+    },
+    {
+      "t": "2026-10-25T17:59:00.000-03:00",
+      "pctSecoes": 39.76149019566705,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.32715375235587,
+          "votos": 25520528
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.67284624764413,
+          "votos": 22336007
+        }
+      ],
+      "secoesApuradas": 198508,
+      "secoesTotal": 499248,
+      "votosValidos": 47856535,
+      "minutesFromStart": 59,
+      "hora": "17:59:00"
+    },
+    {
+      "t": "2026-10-25T18:01:00.000-03:00",
+      "pctSecoes": 40.996473840626926,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.289998941895426,
+          "votos": 26294857
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.710001058104574,
+          "votos": 23048092
+        }
+      ],
+      "secoesApuradas": 204674,
+      "secoesTotal": 499248,
+      "votosValidos": 49342949,
+      "minutesFromStart": 61,
+      "hora": "18:01:00"
+    },
+    {
+      "t": "2026-10-25T18:03:00.000-03:00",
+      "pctSecoes": 42.22348680765163,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.25447858686646,
+          "votos": 27063803
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.74552141313354,
+          "votos": 23755966
+        }
+      ],
+      "secoesApuradas": 210800,
+      "secoesTotal": 499248,
+      "votosValidos": 50819769,
+      "minutesFromStart": 63,
+      "hora": "18:03:00"
+    },
+    {
+      "t": "2026-10-25T18:05:00.000-03:00",
+      "pctSecoes": 43.44246530386422,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.220512893090664,
+          "votos": 27827367
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.779487106909336,
+          "votos": 24459553
+        }
+      ],
+      "secoesApuradas": 216886,
+      "secoesTotal": 499248,
+      "votosValidos": 52286920,
+      "minutesFromStart": 65,
+      "hora": "18:05:00"
+    },
+    {
+      "t": "2026-10-25T18:07:00.000-03:00",
+      "pctSecoes": 44.65334407621698,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.1880316584885,
+          "votos": 28585547
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.8119683415115,
+          "votos": 25158775
+        }
+      ],
+      "secoesApuradas": 222931,
+      "secoesTotal": 499248,
+      "votosValidos": 53744322,
+      "minutesFromStart": 67,
+      "hora": "18:07:00"
+    },
+    {
+      "t": "2026-10-25T18:09:00.000-03:00",
+      "pctSecoes": 45.85605635567999,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.15696178138043,
+          "votos": 29338334
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.84303821861957,
+          "votos": 25853560
+        }
+      ],
+      "secoesApuradas": 228935,
+      "secoesTotal": 499248,
+      "votosValidos": 55191894,
+      "minutesFromStart": 69,
+      "hora": "18:09:00"
+    },
+    {
+      "t": "2026-10-25T18:11:00.000-03:00",
+      "pctSecoes": 47.05053379841414,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.12723894793099,
+          "votos": 30085719
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.87276105206901,
+          "votos": 26543836
+        }
+      ],
+      "secoesApuradas": 234899,
+      "secoesTotal": 499248,
+      "votosValidos": 56629555,
+      "minutesFromStart": 71,
+      "hora": "18:11:00"
+    },
+    {
+      "t": "2026-10-25T18:13:00.000-03:00",
+      "pctSecoes": 48.236706423717294,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.0988023005786,
+          "votos": 30827689
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.9011976994214,
+          "votos": 27229532
+        }
+      ],
+      "secoesApuradas": 240821,
+      "secoesTotal": 499248,
+      "votosValidos": 58057221,
+      "minutesFromStart": 73,
+      "hora": "18:13:00"
+    },
+    {
+      "t": "2026-10-25T18:15:00.000-03:00",
+      "pctSecoes": 49.41450254851251,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.071588885411224,
+          "votos": 31564224
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.928411114588776,
+          "votos": 27910581
+        }
+      ],
+      "secoesApuradas": 246701,
+      "secoesTotal": 499248,
+      "votosValidos": 59474805,
+      "minutesFromStart": 75,
+      "hora": "18:15:00"
+    },
+    {
+      "t": "2026-10-25T18:17:00.000-03:00",
+      "pctSecoes": 50.583848718127825,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.045542788864886,
+          "votos": 32295303
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.954457211135114,
+          "votos": 28586915
+        }
+      ],
+      "secoesApuradas": 252539,
+      "secoesTotal": 499248,
+      "votosValidos": 60882218,
+      "minutesFromStart": 77,
+      "hora": "18:17:00"
+    },
+    {
+      "t": "2026-10-25T18:19:00.000-03:00",
+      "pctSecoes": 51.74466963309402,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 53.02061255564062,
+          "votos": 33020904
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 46.97938744435938,
+          "votos": 29258467
+        }
+      ],
+      "secoesApuradas": 258334,
+      "secoesTotal": 499248,
+      "votosValidos": 62279371,
+      "minutesFromStart": 79,
+      "hora": "18:19:00"
+    },
+    {
+      "t": "2026-10-25T18:21:00.000-03:00",
+      "pctSecoes": 52.89688807166183,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.99674619969674,
+          "votos": 33740998
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.00325380030326,
+          "votos": 29925171
+        }
+      ],
+      "secoesApuradas": 264087,
+      "secoesTotal": 499248,
+      "votosValidos": 63666169,
+      "minutesFromStart": 81,
+      "hora": "18:21:00"
+    },
+    {
+      "t": "2026-10-25T18:23:00.000-03:00",
+      "pctSecoes": 54.04042480771256,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.97389235493785,
+          "votos": 34455554
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.02610764506215,
+          "votos": 30586965
+        }
+      ],
+      "secoesApuradas": 269796,
+      "secoesTotal": 499248,
+      "votosValidos": 65042519,
+      "minutesFromStart": 83,
+      "hora": "18:23:00"
+    },
+    {
+      "t": "2026-10-25T18:25:00.000-03:00",
+      "pctSecoes": 55.17519852370501,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.95200732450381,
+          "votos": 35164539
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.04799267549619,
+          "votos": 31243782
+        }
+      ],
+      "secoesApuradas": 275461,
+      "secoesTotal": 499248,
+      "votosValidos": 66408321,
+      "minutesFromStart": 85,
+      "hora": "18:25:00"
+    },
+    {
+      "t": "2026-10-25T18:27:00.000-03:00",
+      "pctSecoes": 56.30112571826721,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.9310479881522,
+          "votos": 35867918
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.0689520118478,
+          "votos": 31895558
+        }
+      ],
+      "secoesApuradas": 281082,
+      "secoesTotal": 499248,
+      "votosValidos": 67763476,
+      "minutesFromStart": 87,
+      "hora": "18:27:00"
+    },
+    {
+      "t": "2026-10-25T18:29:00.000-03:00",
+      "pctSecoes": 57.418120608003484,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.910969053022605,
+          "votos": 36565649
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.089030946977395,
+          "votos": 32542231
+        }
+      ],
+      "secoesApuradas": 286659,
+      "secoesTotal": 499248,
+      "votosValidos": 69107880,
+      "minutesFromStart": 89,
+      "hora": "18:29:00"
+    },
+    {
+      "t": "2026-10-25T18:31:00.000-03:00",
+      "pctSecoes": 58.52609502304426,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.891733723679394,
+          "votos": 37257692
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.108266276320606,
+          "votos": 33183735
+        }
+      ],
+      "secoesApuradas": 292190,
+      "secoesTotal": 499248,
+      "votosValidos": 70441427,
+      "minutesFromStart": 91,
+      "hora": "18:31:00"
+    },
+    {
+      "t": "2026-10-25T18:33:00.000-03:00",
+      "pctSecoes": 59.62495829581806,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.87330384334164,
+          "votos": 37944002
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.12669615665836,
+          "votos": 33820006
+        }
+      ],
+      "secoesApuradas": 297676,
+      "secoesTotal": 499248,
+      "votosValidos": 71764008,
+      "minutesFromStart": 93,
+      "hora": "18:33:00"
+    },
+    {
+      "t": "2026-10-25T18:35:00.000-03:00",
+      "pctSecoes": 60.71461714247168,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.85564206120491,
+          "votos": 38624530
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.14435793879509,
+          "votos": 34450980
+        }
+      ],
+      "secoesApuradas": 303117,
+      "secoesTotal": 499248,
+      "votosValidos": 73075510,
+      "minutesFromStart": 95,
+      "hora": "18:35:00"
+    },
+    {
+      "t": "2026-10-25T18:37:00.000-03:00",
+      "pctSecoes": 61.79497553630371,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.838714959226195,
+          "votos": 39299227
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.161285040773805,
+          "votos": 35076592
+        }
+      ],
+      "secoesApuradas": 308510,
+      "secoesTotal": 499248,
+      "votosValidos": 74375819,
+      "minutesFromStart": 97,
+      "hora": "18:37:00"
+    },
+    {
+      "t": "2026-10-25T18:39:00.000-03:00",
+      "pctSecoes": 62.86593457250858,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.82248955475541,
+          "votos": 39968039
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.17751044524459,
+          "votos": 35696776
+        }
+      ],
+      "secoesApuradas": 313857,
+      "secoesTotal": 499248,
+      "votosValidos": 75664815,
+      "minutesFromStart": 99,
+      "hora": "18:39:00"
+    },
+    {
+      "t": "2026-10-25T18:41:00.000-03:00",
+      "pctSecoes": 63.92739232345133,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.80693506016678,
+          "votos": 40630910
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.19306493983322,
+          "votos": 36311465
+        }
+      ],
+      "secoesApuradas": 319156,
+      "secoesTotal": 499248,
+      "votosValidos": 76942375,
+      "minutesFromStart": 101,
+      "hora": "18:41:00"
+    },
+    {
+      "t": "2026-10-25T18:43:00.000-03:00",
+      "pctSecoes": 64.97924368360653,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.79202206126986,
+          "votos": 41287781
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.20797793873014,
+          "votos": 36920591
+        }
+      ],
+      "secoesApuradas": 324408,
+      "secoesTotal": 499248,
+      "votosValidos": 78208372,
+      "minutesFromStart": 103,
+      "hora": "18:43:00"
+    },
+    {
+      "t": "2026-10-25T18:45:00.000-03:00",
+      "pctSecoes": 66.02138020319519,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.77772289526915,
+          "votos": 41938592
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.22227710473085,
+          "votos": 37524086
+        }
+      ],
+      "secoesApuradas": 329610,
+      "secoesTotal": 499248,
+      "votosValidos": 79462678,
+      "minutesFromStart": 105,
+      "hora": "18:45:00"
+    },
+    {
+      "t": "2026-10-25T18:47:00.000-03:00",
+      "pctSecoes": 67.05368990944226,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.764009932203216,
+          "votos": 42583276
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.235990067796784,
+          "votos": 38121879
+        }
+      ],
+      "secoesApuradas": 334764,
+      "secoesTotal": 499248,
+      "votosValidos": 80705155,
+      "minutesFromStart": 107,
+      "hora": "18:47:00"
+    },
+    {
+      "t": "2026-10-25T18:49:00.000-03:00",
+      "pctSecoes": 68.07605711424806,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.75085821600571,
+          "votos": 43221767
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.24914178399429,
+          "votos": 38713899
+        }
+      ],
+      "secoesApuradas": 339868,
+      "secoesTotal": 499248,
+      "votosValidos": 81935666,
+      "minutesFromStart": 109,
+      "hora": "18:49:00"
+    },
+    {
+      "t": "2026-10-25T18:51:00.000-03:00",
+      "pctSecoes": 69.08836220692159,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.738243097598584,
+          "votos": 43853994
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.261756902401416,
+          "votos": 39300073
+        }
+      ],
+      "secoesApuradas": 344922,
+      "secoesTotal": 499248,
+      "votosValidos": 83154067,
+      "minutesFromStart": 111,
+      "hora": "18:51:00"
+    },
+    {
+      "t": "2026-10-25T18:53:00.000-03:00",
+      "pctSecoes": 70.09048143045464,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.726142552021,
+          "votos": 44479883
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.273857447979,
+          "votos": 39880324
+        }
+      ],
+      "secoesApuradas": 349925,
+      "secoesTotal": 499248,
+      "votosValidos": 84360207,
+      "minutesFromStart": 113,
+      "hora": "18:53:00"
+    },
+    {
+      "t": "2026-10-25T18:55:00.000-03:00",
+      "pctSecoes": 71.08228663962343,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.714533267400654,
+          "votos": 45099357
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.285466732599346,
+          "votos": 40454577
+        }
+      ],
+      "secoesApuradas": 354877,
+      "secoesTotal": 499248,
+      "votosValidos": 85553934,
+      "minutesFromStart": 115,
+      "hora": "18:55:00"
+    },
+    {
+      "t": "2026-10-25T18:57:00.000-03:00",
+      "pctSecoes": 72.06364503898118,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.703394962832114,
+          "votos": 45712336
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.296605037167886,
+          "votos": 41022752
+        }
+      ],
+      "secoesApuradas": 359776,
+      "secoesTotal": 499248,
+      "votosValidos": 86735088,
+      "minutesFromStart": 117,
+      "hora": "18:57:00"
+    },
+    {
+      "t": "2026-10-25T18:59:00.000-03:00",
+      "pctSecoes": 73.03441889854726,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.69270901963279,
+          "votos": 46318736
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.30729098036721,
+          "votos": 41584765
+        }
+      ],
+      "secoesApuradas": 364623,
+      "secoesTotal": 499248,
+      "votosValidos": 87903501,
+      "minutesFromStart": 119,
+      "hora": "18:59:00"
+    },
+    {
+      "t": "2026-10-25T19:01:00.000-03:00",
+      "pctSecoes": 73.99446524469994,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.68245420754986,
+          "votos": 46918469
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.31754579245014,
+          "votos": 42140535
+        }
+      ],
+      "secoesApuradas": 369416,
+      "secoesTotal": 499248,
+      "votosValidos": 89059004,
+      "minutesFromStart": 121,
+      "hora": "19:01:00"
+    },
+    {
+      "t": "2026-10-25T19:03:00.000-03:00",
+      "pctSecoes": 74.94363552343005,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.67261325476309,
+          "votos": 47511443
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.32738674523691,
+          "votos": 42689973
+        }
+      ],
+      "secoesApuradas": 374155,
+      "secoesTotal": 499248,
+      "votosValidos": 90201416,
+      "minutesFromStart": 123,
+      "hora": "19:03:00"
+    },
+    {
+      "t": "2026-10-25T19:05:00.000-03:00",
+      "pctSecoes": 75.88177523270626,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.663169633127474,
+          "votos": 48097563
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.336830366872526,
+          "votos": 43232988
+        }
+      ],
+      "secoesApuradas": 378838,
+      "secoesTotal": 499248,
+      "votosValidos": 91330551,
+      "minutesFromStart": 125,
+      "hora": "19:05:00"
+    },
+    {
+      "t": "2026-10-25T19:07:00.000-03:00",
+      "pctSecoes": 76.80872352022364,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.65410698200879,
+          "votos": 48676730
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.34589301799121,
+          "votos": 43769487
+        }
+      ],
+      "secoesApuradas": 383466,
+      "secoesTotal": 499248,
+      "votosValidos": 92446217,
+      "minutesFromStart": 127,
+      "hora": "19:07:00"
+    },
+    {
+      "t": "2026-10-25T19:09:00.000-03:00",
+      "pctSecoes": 77.72431274224296,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.645409755617884,
+          "votos": 49248839
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.354590244382116,
+          "votos": 44299372
+        }
+      ],
+      "secoesApuradas": 388037,
+      "secoesTotal": 499248,
+      "votosValidos": 93548211,
+      "minutesFromStart": 129,
+      "hora": "19:09:00"
+    },
+    {
+      "t": "2026-10-25T19:11:00.000-03:00",
+      "pctSecoes": 78.62836797856157,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.63706198728791,
+          "votos": 49813780
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.36293801271209,
+          "votos": 44822543
+        }
+      ],
+      "secoesApuradas": 392551,
+      "secoesTotal": 499248,
+      "votosValidos": 94636323,
+      "minutesFromStart": 131,
+      "hora": "19:11:00"
+    },
+    {
+      "t": "2026-10-25T19:13:00.000-03:00",
+      "pctSecoes": 79.52070649786234,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.62905103464639,
+          "votos": 50371440
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.37094896535361,
+          "votos": 45338893
+        }
+      ],
+      "secoesApuradas": 397006,
+      "secoesTotal": 499248,
+      "votosValidos": 95710333,
+      "minutesFromStart": 133,
+      "hora": "19:13:00"
+    },
+    {
+      "t": "2026-10-25T19:15:00.000-03:00",
+      "pctSecoes": 80.4011371667397,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.62136275484522,
+          "votos": 50921698
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.37863724515478,
+          "votos": 45848312
+        }
+      ],
+      "secoesApuradas": 401401,
+      "secoesTotal": 499248,
+      "votosValidos": 96770010,
+      "minutesFromStart": 135,
+      "hora": "19:15:00"
+    },
+    {
+      "t": "2026-10-25T19:17:00.000-03:00",
+      "pctSecoes": 81.26945979456421,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.613984045308335,
+          "votos": 51464429
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.386015954691665,
+          "votos": 46350686
+        }
+      ],
+      "secoesApuradas": 405736,
+      "secoesTotal": 499248,
+      "votosValidos": 97815115,
+      "minutesFromStart": 137,
+      "hora": "19:17:00"
+    },
+    {
+      "t": "2026-10-25T19:19:00.000-03:00",
+      "pctSecoes": 82.12546440497366,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.606903996021344,
+          "votos": 51999501
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.393096003978656,
+          "votos": 46845892
+        }
+      ],
+      "secoesApuradas": 410010,
+      "secoesTotal": 499248,
+      "votosValidos": 98845393,
+      "minutesFromStart": 139,
+      "hora": "19:19:00"
+    },
+    {
+      "t": "2026-10-25T19:21:00.000-03:00",
+      "pctSecoes": 82.96893042311302,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.60011054812509,
+          "votos": 52526776
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.39988945187491,
+          "votos": 47333805
+        }
+      ],
+      "secoesApuradas": 414221,
+      "secoesTotal": 499248,
+      "votosValidos": 99860581,
+      "minutesFromStart": 141,
+      "hora": "19:21:00"
+    },
+    {
+      "t": "2026-10-25T19:23:00.000-03:00",
+      "pctSecoes": 83.7996257657113,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.593592309576174,
+          "votos": 53046106
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.406407690423826,
+          "votos": 47814291
+        }
+      ],
+      "secoesApuradas": 418368,
+      "secoesTotal": 499248,
+      "votosValidos": 100860397,
+      "minutesFromStart": 143,
+      "hora": "19:23:00"
+    },
+    {
+      "t": "2026-10-25T19:25:00.000-03:00",
+      "pctSecoes": 84.61730581858534,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.58733975050545,
+          "votos": 53557339
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.41266024949455,
+          "votos": 48287210
+        }
+      ],
+      "secoesApuradas": 422450,
+      "secoesTotal": 499248,
+      "votosValidos": 101844549,
+      "minutesFromStart": 145,
+      "hora": "19:25:00"
+    },
+    {
+      "t": "2026-10-25T19:27:00.000-03:00",
+      "pctSecoes": 85.42171228307053,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.58134243596792,
+          "votos": 54060311
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.41865756403208,
+          "votos": 48752414
+        }
+      ],
+      "secoesApuradas": 426466,
+      "secoesTotal": 499248,
+      "votosValidos": 102812725,
+      "minutesFromStart": 147,
+      "hora": "19:27:00"
+    },
+    {
+      "t": "2026-10-25T19:29:00.000-03:00",
+      "pctSecoes": 86.2125718690303,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.575590932533395,
+          "votos": 54554849
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.424409067466605,
+          "votos": 49209746
+        }
+      ],
+      "secoesApuradas": 430415,
+      "secoesTotal": 499248,
+      "votosValidos": 103764595,
+      "minutesFromStart": 149,
+      "hora": "19:29:00"
+    },
+    {
+      "t": "2026-10-25T19:31:00.000-03:00",
+      "pctSecoes": 86.9895948072654,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.570077656203644,
+          "votos": 55040773
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.429922343796356,
+          "votos": 49659040
+        }
+      ],
+      "secoesApuradas": 434294,
+      "secoesTotal": 499248,
+      "votosValidos": 104699813,
+      "minutesFromStart": 151,
+      "hora": "19:31:00"
+    },
+    {
+      "t": "2026-10-25T19:33:00.000-03:00",
+      "pctSecoes": 87.7524731480319,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.56479233820029,
+          "votos": 55517885
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.43520766179971,
+          "votos": 50100120
+        }
+      ],
+      "secoesApuradas": 438102,
+      "secoesTotal": 499248,
+      "votosValidos": 105618005,
+      "minutesFromStart": 153,
+      "hora": "19:33:00"
+    },
+    {
+      "t": "2026-10-25T19:35:00.000-03:00",
+      "pctSecoes": 88.50087880457137,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.55972939757411,
+          "votos": 55985982
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.44027060242589,
+          "votos": 50532797
+        }
+      ],
+      "secoesApuradas": 441839,
+      "secoesTotal": 499248,
+      "votosValidos": 106518779,
+      "minutesFromStart": 155,
+      "hora": "19:35:00"
+    },
+    {
+      "t": "2026-10-25T19:37:00.000-03:00",
+      "pctSecoes": 89.23446129049736,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.55487919969097,
+          "votos": 56444840
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.44512080030903,
+          "votos": 50956872
+        }
+      ],
+      "secoesApuradas": 445501,
+      "secoesTotal": 499248,
+      "votosValidos": 107401712,
+      "minutesFromStart": 157,
+      "hora": "19:37:00"
+    },
+    {
+      "t": "2026-10-25T19:39:00.000-03:00",
+      "pctSecoes": 89.95284508678013,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.55023696143597,
+          "votos": 56894224
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.44976303856403,
+          "votos": 51372127
+        }
+      ],
+      "secoesApuradas": 449088,
+      "secoesTotal": 499248,
+      "votosValidos": 108266351,
+      "minutesFromStart": 159,
+      "hora": "19:39:00"
+    },
+    {
+      "t": "2026-10-25T19:41:00.000-03:00",
+      "pctSecoes": 90.655626556816,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.54579478234755,
+          "votos": 57333879
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.45420521765245,
+          "votos": 51778333
+        }
+      ],
+      "secoesApuradas": 452596,
+      "secoesTotal": 499248,
+      "votosValidos": 109112212,
+      "minutesFromStart": 161,
+      "hora": "19:41:00"
+    },
+    {
+      "t": "2026-10-25T19:43:00.000-03:00",
+      "pctSecoes": 91.34237030506303,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.541547445000525,
+          "votos": 57763531
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.458452554999475,
+          "votos": 52175239
+        }
+      ],
+      "secoesApuradas": 456025,
+      "secoesTotal": 499248,
+      "votosValidos": 109938770,
+      "minutesFromStart": 163,
+      "hora": "19:43:00"
+    },
+    {
+      "t": "2026-10-25T19:45:00.000-03:00",
+      "pctSecoes": 92.01260484364079,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.53748916727583,
+          "votos": 58182883
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.46251083272417,
+          "votos": 52562575
+        }
+      ],
+      "secoesApuradas": 459371,
+      "secoesTotal": 499248,
+      "votosValidos": 110745458,
+      "minutesFromStart": 165,
+      "hora": "19:45:00"
+    },
+    {
+      "t": "2026-10-25T19:47:00.000-03:00",
+      "pctSecoes": 92.66581738867548,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.53361516422539,
+          "votos": 58591612
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.46638483577461,
+          "votos": 52940046
+        }
+      ],
+      "secoesApuradas": 462632,
+      "secoesTotal": 499248,
+      "votosValidos": 111531658,
+      "minutesFromStart": 167,
+      "hora": "19:47:00"
+    },
+    {
+      "t": "2026-10-25T19:49:00.000-03:00",
+      "pctSecoes": 93.30144754878465,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.52992038162904,
+          "votos": 58989365
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.47007961837096,
+          "votos": 53307331
+        }
+      ],
+      "secoesApuradas": 465806,
+      "secoesTotal": 499248,
+      "votosValidos": 112296696,
+      "minutesFromStart": 169,
+      "hora": "19:49:00"
+    },
+    {
+      "t": "2026-10-25T19:51:00.000-03:00",
+      "pctSecoes": 93.91887958384395,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.52640107007945,
+          "votos": 59375755
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.47359892992055,
+          "votos": 53664076
+        }
+      ],
+      "secoesApuradas": 468888,
+      "secoesTotal": 499248,
+      "votosValidos": 113039831,
+      "minutesFromStart": 171,
+      "hora": "19:51:00"
+    },
+    {
+      "t": "2026-10-25T19:53:00.000-03:00",
+      "pctSecoes": 94.51743279022466,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.52305278107526,
+          "votos": 59750353
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.47694721892474,
+          "votos": 54009891
+        }
+      ],
+      "secoesApuradas": 471876,
+      "secoesTotal": 499248,
+      "votosValidos": 113760244,
+      "minutesFromStart": 173,
+      "hora": "19:53:00"
+    },
+    {
+      "t": "2026-10-25T19:55:00.000-03:00",
+      "pctSecoes": 95.09634938814531,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.51987422842436,
+          "votos": 60112684
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.48012577157564,
+          "votos": 54344338
+        }
+      ],
+      "secoesApuradas": 474767,
+      "secoesTotal": 499248,
+      "votosValidos": 114457022,
+      "minutesFromStart": 175,
+      "hora": "19:55:00"
+    },
+    {
+      "t": "2026-10-25T19:57:00.000-03:00",
+      "pctSecoes": 95.65477901257576,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.51686232491857,
+          "votos": 60462213
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.48313767508143,
+          "votos": 54666929
+        }
+      ],
+      "secoesApuradas": 477555,
+      "secoesTotal": 499248,
+      "votosValidos": 115129142,
+      "minutesFromStart": 177,
+      "hora": "19:57:00"
+    },
+    {
+      "t": "2026-10-25T19:59:00.000-03:00",
+      "pctSecoes": 96.19175848036264,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.51401452181851,
+          "votos": 60798334
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.48598547818149,
+          "votos": 54977111
+        }
+      ],
+      "secoesApuradas": 480235,
+      "secoesTotal": 499248,
+      "votosValidos": 115775445,
+      "minutesFromStart": 179,
+      "hora": "19:59:00"
+    },
+    {
+      "t": "2026-10-25T20:01:00.000-03:00",
+      "pctSecoes": 96.70618481282366,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.51133119538772,
+          "votos": 61120356
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.48866880461228,
+          "votos": 55274248
+        }
+      ],
+      "secoesApuradas": 482804,
+      "secoesTotal": 499248,
+      "votosValidos": 116394604,
+      "minutesFromStart": 181,
+      "hora": "20:01:00"
+    },
+    {
+      "t": "2026-10-25T20:03:00.000-03:00",
+      "pctSecoes": 97.196778326653,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.50881187179113,
+          "votos": 61427474
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.49118812820887,
+          "votos": 55557603
+        }
+      ],
+      "secoesApuradas": 485253,
+      "secoesTotal": 499248,
+      "votosValidos": 116985077,
+      "minutesFromStart": 183,
+      "hora": "20:03:00"
+    },
+    {
+      "t": "2026-10-25T20:05:00.000-03:00",
+      "pctSecoes": 97.66203055034876,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.50645858757983,
+          "votos": 61718743
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.49354141242017,
+          "votos": 55826307
+        }
+      ],
+      "secoesApuradas": 487576,
+      "secoesTotal": 499248,
+      "votosValidos": 117545050,
+      "minutesFromStart": 185,
+      "hora": "20:05:00"
+    },
+    {
+      "t": "2026-10-25T20:07:00.000-03:00",
+      "pctSecoes": 98.10012789107904,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.50427322775173,
+          "votos": 61993024
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.49572677224827,
+          "votos": 56079316
+        }
+      ],
+      "secoesApuradas": 489763,
+      "secoesTotal": 499248,
+      "votosValidos": 118072340,
+      "minutesFromStart": 187,
+      "hora": "20:07:00"
+    },
+    {
+      "t": "2026-10-25T20:09:00.000-03:00",
+      "pctSecoes": 98.50883431942114,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.5022613265693,
+          "votos": 62248915
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.4977386734307,
+          "votos": 56315340
+        }
+      ],
+      "secoesApuradas": 491803,
+      "secoesTotal": 499248,
+      "votosValidos": 118564255,
+      "minutesFromStart": 189,
+      "hora": "20:09:00"
+    },
+    {
+      "t": "2026-10-25T20:11:00.000-03:00",
+      "pctSecoes": 98.88529963079176,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.50043134461934,
+          "votos": 62484630
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.49956865538066,
+          "votos": 56532735
+        }
+      ],
+      "secoesApuradas": 493683,
+      "secoesTotal": 499248,
+      "votosValidos": 119017365,
+      "minutesFromStart": 191,
+      "hora": "20:11:00"
+    },
+    {
+      "t": "2026-10-25T20:13:00.000-03:00",
+      "pctSecoes": 99.22571888942738,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.49879403408389,
+          "votos": 62697782
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.50120596591611,
+          "votos": 56729308
+        }
+      ],
+      "secoesApuradas": 495382,
+      "secoesTotal": 499248,
+      "votosValidos": 119427090,
+      "minutesFromStart": 193,
+      "hora": "20:13:00"
+    },
+    {
+      "t": "2026-10-25T20:15:00.000-03:00",
+      "pctSecoes": 99.52465053158362,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.49737156108105,
+          "votos": 62884964
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.50262843891895,
+          "votos": 56901917
+        }
+      ],
+      "secoesApuradas": 496875,
+      "secoesTotal": 499248,
+      "votosValidos": 119786881,
+      "minutesFromStart": 195,
+      "hora": "20:15:00"
+    },
+    {
+      "t": "2026-10-25T20:17:00.000-03:00",
+      "pctSecoes": 99.77336221051746,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.49619714926844,
+          "votos": 63040703
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.50380285073156,
+          "votos": 57045525
+        }
+      ],
+      "secoesApuradas": 498117,
+      "secoesTotal": 499248,
+      "votosValidos": 120086228,
+      "minutesFromStart": 197,
+      "hora": "20:17:00"
+    },
+    {
+      "t": "2026-10-25T20:19:00.000-03:00",
+      "pctSecoes": 99.95392063280825,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.4953512176607,
+          "votos": 63153769
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.5046487823393,
+          "votos": 57149777
+        }
+      ],
+      "secoesApuradas": 499018,
+      "secoesTotal": 499248,
+      "votosValidos": 120303546,
+      "minutesFromStart": 199,
+      "hora": "20:19:00"
+    },
+    {
+      "t": "2026-10-25T21:30:00.000-03:00",
+      "pctSecoes": 100,
+      "candidatos": [
+        {
+          "numero": "22",
+          "nomeUrna": "FLAVIO BOLSONARO",
+          "pctValidos": 52.345749999999995,
+          "votos": 63002825
+        },
+        {
+          "numero": "13",
+          "nomeUrna": "LULA",
+          "pctValidos": 47.654250000000005,
+          "votos": 57356182
+        }
+      ],
+      "secoesApuradas": 499248,
+      "secoesTotal": 499248,
+      "votosValidos": 120359007,
+      "minutesFromStart": 270,
+      "hora": "21:30:00"
+    }
+  ]
+}

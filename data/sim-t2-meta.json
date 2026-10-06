@@ -1,0 +1,48 @@
+{
+  "titulo": "2º turno simulado — Flávio × Lula",
+  "premisaAbstencao": "Abstenção 1º turno 21.08% → 2º turno 20.38% (−0,7 pp)",
+  "pesquisas": [
+    {
+      "nome": "Palver 29/09",
+      "flavio": 51.087,
+      "lula": 48.913
+    },
+    {
+      "nome": "GERP 29/09",
+      "flavio": 53.763,
+      "lula": 46.237
+    },
+    {
+      "nome": "Futura 30/09",
+      "flavio": 52.973,
+      "lula": 47.027
+    },
+    {
+      "nome": "Veritá 06/10",
+      "flavio": 51.56,
+      "lula": 48.44
+    }
+  ],
+  "mediaValidos": {
+    "flavio": 52.345749999999995,
+    "lula": 47.654250000000005
+  },
+  "totais": {
+    "eleitorado": 158745502,
+    "comparecimento": 126387054,
+    "validos": 120359007,
+    "votosFlavio": 63002825,
+    "votosLula": 57356182,
+    "pctFlavio": 52.345749999999995,
+    "pctLula": 47.654250000000005
+  },
+  "transferencia": {
+    "novosVotosValidos": 1058219,
+    "terceiraVia": 9316747,
+    "extraFlavio": 6898322,
+    "extraLula": 3476644,
+    "shareFlavioDoExtra": 0.6649006849757387,
+    "poolAproximado": 10374966
+  },
+  "nota": "Simulação didática: média Palver/GERP/Futura/Veritá nos válidos + abstenção −0,7 pp. Não é previsão oficial."
+}

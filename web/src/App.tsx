@@ -8,6 +8,14 @@ import {
   loadSeries,
 } from "./lib/live";
 import {
+  loadSimT2,
+  simPointToSnapshot,
+  simRaceKey,
+  simSeriesToPoints,
+  type SimT2Meta,
+  type SimT2Payload,
+} from "./lib/sim";
+import {
   buildProjectionSeries,
   projectByTrajectory,
 } from "./lib/trajectory";
@@ -19,6 +27,7 @@ type RaceOpt = {
   cargo: "presidente" | "governador";
   turno: number;
   abrangencia: string;
+  sim?: boolean;
 };
 
 const RACES: RaceOpt[] = [
@@ -28,6 +37,14 @@ const RACES: RaceOpt[] = [
     cargo: "presidente",
     turno: 2,
     abrangencia: "BR",
+  },
+  {
+    id: simRaceKey(),
+    label: "Presidente · 2º turno SIMULADO (pesquisas)",
+    cargo: "presidente",
+    turno: 2,
+    abrangencia: "BR",
+    sim: true,
   },
   {
     id: "2026-t2-governador-rj",
@@ -54,8 +71,20 @@ export function App() {
   const [error, setError] = useState<string | null>(null);
   const [codes, setCodes] = useState<string>("");
   const [tick, setTick] = useState(0);
+  const [simPayload, setSimPayload] = useState<SimT2Payload | null>(null);
+  const [simIndex, setSimIndex] = useState(0);
 
-  const refresh = useCallback(async () => {
+  const applySimIndex = useCallback((payload: SimT2Payload, index: number) => {
+    const clamped = Math.max(0, Math.min(index, payload.series.length - 1));
+    const point = payload.series[clamped]!;
+    setSimIndex(clamped);
+    setSnap(simPointToSnapshot(point));
+    setSeries(simSeriesToPoints(payload.series, clamped));
+    setWaiting(null);
+    setError(null);
+  }, []);
+
+  const refreshLive = useCallback(async () => {
     try {
       setError(null);
       const live = await fetchLiveSnapshot({
@@ -70,7 +99,6 @@ export function App() {
         setSeries(hist);
         return;
       }
-      // força raceKey estável no cliente
       const snapshot = { ...live.snapshot, raceKey: race.id };
       setSnap(snapshot);
       setWaiting(null);
@@ -89,13 +117,43 @@ export function App() {
   }, []);
 
   useEffect(() => {
-    void refresh();
+    setSnap(null);
+    setSeries([]);
+    setWaiting(null);
+    setError(null);
+
+    if (race.sim) {
+      let cancelled = false;
+      void loadSimT2()
+        .then((payload) => {
+          if (cancelled) return;
+          setSimPayload(payload);
+          // começa ~55% do índice da série (~69% seções) pra ver projeção no meio da noite
+          const startAt = Math.max(
+            0,
+            Math.floor(payload.series.length * 0.55) - 1,
+          );
+          applySimIndex(payload, startAt);
+        })
+        .catch((err) => {
+          if (cancelled) return;
+          setError(err instanceof Error ? err.message : "falha ao carregar simulação");
+          setSnap(null);
+          setSeries([]);
+        });
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    setSimPayload(null);
+    void refreshLive();
     const id = window.setInterval(() => {
-      void refresh();
+      void refreshLive();
       setTick((t) => t + 1);
     }, 30_000);
     return () => window.clearInterval(id);
-  }, [refresh]);
+  }, [race, refreshLive, applySimIndex]);
 
   const traj = useMemo((): Trajetoria | null => {
     if (!snap) return null;
@@ -126,6 +184,9 @@ export function App() {
     return `Abertura estável (${g.toFixed(3)} pp / ponto de seção)`;
   }, [traj]);
 
+  const simMeta: SimT2Meta | null = simPayload?.meta ?? null;
+  const simPoint = simPayload?.series[simIndex];
+
   return (
     <>
       <header>
@@ -149,6 +210,37 @@ export function App() {
       </header>
 
       {error && <div className="error">{error}</div>}
+
+      {race.sim && simMeta && (
+        <div className="panel">
+          <h2>{simMeta.titulo}</h2>
+          <p className="note" style={{ marginTop: 0 }}>
+            {simMeta.nota}
+          </p>
+          <p className="note">
+            {simMeta.premisaAbstencao}. Média Palver/GERP/Futura/Veritá nos válidos: Flávio{" "}
+            {simMeta.mediaValidos.flavio.toFixed(2)}% · Lula{" "}
+            {simMeta.mediaValidos.lula.toFixed(2)}%. Da 3ª via + votos novos, ~{" "}
+            {(simMeta.transferencia.shareFlavioDoExtra * 100).toFixed(0)}% para Flávio.
+          </p>
+          {simPayload && (
+            <label style={{ display: "block", marginTop: "0.75rem" }}>
+              <span className="sub">
+                Replay da noite · {simPoint?.hora?.slice(0, 5) ?? "—"} ·{" "}
+                {simPoint?.pctSecoes.toFixed(1) ?? "—"}% seções
+              </span>
+              <input
+                type="range"
+                min={0}
+                max={simPayload.series.length - 1}
+                value={simIndex}
+                onChange={(e) => applySimIndex(simPayload, Number(e.target.value))}
+                style={{ width: "100%", marginTop: "0.35rem" }}
+              />
+            </label>
+          )}
+        </div>
+      )}
 
       {waiting && !snap && (
         <div className="panel">
