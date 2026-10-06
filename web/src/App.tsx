@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { ConsensusCard, MethodBoard } from "./components/MethodBoard";
 import { DuelHero } from "./components/DuelHero";
 import { Masthead } from "./components/Masthead";
 import { ProjectionRail } from "./components/ProjectionRail";
@@ -9,9 +10,12 @@ import {
   appendSnapshot,
   fetchConfig,
   fetchLiveSnapshot,
+  fetchLiveUfs,
   loadSeries,
 } from "./lib/live";
+import { runAllMethods, type UfBreakdown } from "./lib/projection";
 import {
+  buildSimUfBreakdown,
   loadSimT2,
   simPointToSnapshot,
   simRaceKey,
@@ -71,6 +75,7 @@ export function App() {
   const race = RACES.find((r) => r.id === raceId) ?? RACES[0]!;
   const [snap, setSnap] = useState<OfficialSnapshot | null>(null);
   const [series, setSeries] = useState<SeriesPoint[]>([]);
+  const [ufs, setUfs] = useState<UfBreakdown[] | null>(null);
   const [waiting, setWaiting] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [codes, setCodes] = useState<string>("");
@@ -84,6 +89,7 @@ export function App() {
     setSimIndex(clamped);
     setSnap(simPointToSnapshot(point));
     setSeries(simSeriesToPoints(payload.series, clamped));
+    setUfs(buildSimUfBreakdown(point.pctSecoes, payload.meta));
     setWaiting(null);
     setError(null);
   }, []);
@@ -98,6 +104,7 @@ export function App() {
       });
       if (!live.disponivel || !live.snapshot) {
         setSnap(null);
+        setUfs(null);
         setWaiting(live.dica ?? live.motivo ?? "Aguardando dados do TSE");
         const hist = await loadSeries(race.id);
         setSeries(hist);
@@ -109,6 +116,17 @@ export function App() {
       await appendSnapshot(snapshot);
       const hist = await loadSeries(race.id);
       setSeries(hist);
+
+      if (race.cargo === "presidente" && race.abrangencia === "BR") {
+        try {
+          const ufLive = await fetchLiveUfs({ cargo: "presidente", turno: race.turno });
+          setUfs(ufLive.disponivel && ufLive.ufs ? ufLive.ufs : null);
+        } catch {
+          setUfs(null);
+        }
+      } else {
+        setUfs(null);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "falha ao atualizar");
     }
@@ -123,6 +141,7 @@ export function App() {
   useEffect(() => {
     setSnap(null);
     setSeries([]);
+    setUfs(null);
     setWaiting(null);
     setError(null);
 
@@ -174,6 +193,11 @@ export function App() {
     };
   }, [snap, series]);
 
+  const ensemble = useMemo(() => {
+    if (!snap) return null;
+    return runAllMethods({ snap, series, ufs });
+  }, [snap, series, ufs]);
+
   const serieProjecao = useMemo(() => {
     if (!snap || !traj) return [];
     return buildProjectionSeries(snap, projectByTrajectory(snap, series));
@@ -200,12 +224,14 @@ export function App() {
   const tickerTag = race.sim ? "SIM" : snap ? "TSE" : "DESK";
   const tickerText = (() => {
     if (error) return error;
-    if (race.sim && simMeta) {
+    if (race.sim && simMeta && ensemble) {
+      const c = ensemble.consensus;
       return (
         <>
           <strong>
-            Flávio {simMeta.mediaValidos.flavio.toFixed(2)}% · Lula{" "}
-            {simMeta.mediaValidos.lula.toFixed(2)}%
+            {c.empate
+              ? `Consenso empate ${c.placar}`
+              : `Previsto ${c.nomeLider ?? "—"} · ${c.placar}`}
           </strong>
           {" · "}
           {simMeta.premisaAbstencao}
@@ -221,14 +247,17 @@ export function App() {
         </>
       );
     }
-    if (snap) {
+    if (snap && ensemble) {
+      const c = ensemble.consensus;
       return (
         <>
           <strong>
-            {snap.pctSecoes.toFixed(1)}% seções · gap{" "}
-            {traj?.gapOficial == null ? "—" : `${traj.gapOficial.toFixed(1)} pp`}
+            {snap.pctSecoes.toFixed(1)}% seções ·{" "}
+            {c.empate
+              ? `consenso empate ${c.placar}`
+              : `previsto ${c.nomeLider ?? "—"} (${c.placar})`}
           </strong>
-          {" · linha cheia oficial · pontilhada projeção até 100%"}
+          {" · 4 métodos + card consenso"}
         </>
       );
     }
@@ -273,7 +302,7 @@ export function App() {
           </div>
         )}
 
-        {snap && traj && (
+        {snap && traj && ensemble && (
           <>
             <DuelHero snap={snap} traj={traj} />
 
@@ -319,6 +348,9 @@ export function App() {
 
               <ProjectionRail snap={snap} traj={traj} gapLabel={gapLabel} />
             </div>
+
+            <MethodBoard methods={ensemble.methods} />
+            <ConsensusCard consensus={ensemble.consensus} />
           </>
         )}
       </div>

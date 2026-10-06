@@ -1,3 +1,4 @@
+import type { UfBreakdown } from "./projection/types";
 import type { OfficialSnapshot, SeriesPoint } from "./types";
 
 const SUPABASE_URL = "https://vtyentzijjlrehkzsnkr.supabase.co";
@@ -46,6 +47,28 @@ export async function fetchLiveSnapshot(opts: {
   const res = await tseFetch(`?${q}`);
   if (!res.ok) throw new Error(`snapshot HTTP ${res.status}`);
   return res.json() as Promise<LiveAtual>;
+}
+
+export interface LiveUfs {
+  disponivel: boolean;
+  motivo?: string;
+  ufs?: UfBreakdown[];
+  ok?: number;
+  failed?: string[];
+}
+
+export async function fetchLiveUfs(opts: {
+  cargo: "presidente" | "governador";
+  turno: number;
+}): Promise<LiveUfs> {
+  const q = new URLSearchParams({
+    op: "ufs",
+    cargo: opts.cargo,
+    turno: String(opts.turno),
+  });
+  const res = await tseFetch(`?${q}`);
+  if (!res.ok) throw new Error(`ufs HTTP ${res.status}`);
+  return res.json() as Promise<LiveUfs>;
 }
 
 const DB_NAME = "apuracao-monitor";
