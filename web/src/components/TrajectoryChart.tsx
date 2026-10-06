@@ -1,6 +1,5 @@
 import {
   CartesianGrid,
-  Legend,
   Line,
   LineChart,
   ReferenceLine,
@@ -16,6 +15,10 @@ interface Props {
   serieProjecao: SeriesPoint[];
   trajetoria: Trajetoria;
 }
+
+const GRID = "#2a2a30";
+const MUTED = "#9b9ba3";
+const TIP_BG = "#111114";
 
 export function TrajectoryChart({ series, serieProjecao, trajetoria }: Props) {
   const topNums = trajetoria.candidatos.slice(0, 4).map((c) => c.numero);
@@ -46,7 +49,6 @@ export function TrajectoryChart({ series, serieProjecao, trajetoria }: Props) {
     }),
   ];
 
-  // Liga a última oficial à primeira projetada (continuidade visual)
   if (series.length && serieProjecao.length) {
     const last = series[series.length - 1]!;
     const bridge: Record<string, number | string> = {
@@ -59,33 +61,47 @@ export function TrajectoryChart({ series, serieProjecao, trajetoria }: Props) {
       bridge[`o_${n}`] = v;
       bridge[`p_${n}`] = v;
     }
-    const insertAt = series.length;
-    rows.splice(insertAt, 0, bridge);
+    rows.splice(series.length, 0, bridge);
   }
 
   return (
-    <div style={{ width: "100%", height: 360 }}>
+    <div style={{ width: "100%", height: 340 }}>
       <ResponsiveContainer>
-        <LineChart data={rows} margin={{ top: 8, right: 12, left: 0, bottom: 8 }}>
-          <CartesianGrid stroke="#243049" strokeDasharray="3 3" />
+        <LineChart data={rows} margin={{ top: 10, right: 8, left: -8, bottom: 4 }}>
+          <CartesianGrid stroke={GRID} strokeDasharray="2 4" vertical={false} />
           <XAxis
             dataKey="pctSecoes"
             type="number"
             domain={[0, 100]}
-            tick={{ fill: "#9aadc7", fontSize: 12 }}
-            label={{ value: "% seções apuradas", position: "insideBottom", offset: -2, fill: "#9aadc7" }}
+            tick={{ fill: MUTED, fontSize: 11, fontFamily: "IBM Plex Sans" }}
+            axisLine={{ stroke: GRID }}
+            tickLine={{ stroke: GRID }}
+            label={{
+              value: "% seções",
+              position: "insideBottom",
+              offset: -2,
+              fill: MUTED,
+              fontSize: 11,
+            }}
           />
           <YAxis
             domain={["auto", "auto"]}
-            tick={{ fill: "#9aadc7", fontSize: 12 }}
-            label={{ value: "% votos válidos", angle: -90, position: "insideLeft", fill: "#9aadc7" }}
+            tick={{ fill: MUTED, fontSize: 11, fontFamily: "IBM Plex Sans" }}
+            axisLine={{ stroke: GRID }}
+            tickLine={{ stroke: GRID }}
+            width={42}
           />
           <Tooltip
-            contentStyle={{ background: "#121a2b", border: "1px solid #243049", borderRadius: 8 }}
+            contentStyle={{
+              background: TIP_BG,
+              border: `1px solid ${GRID}`,
+              borderRadius: 0,
+              fontSize: 12,
+              fontFamily: "IBM Plex Sans",
+            }}
             labelFormatter={(v) => `${v}% seções`}
           />
-          <Legend />
-          <ReferenceLine x={100} stroke="#5b9dff" strokeDasharray="4 4" />
+          <ReferenceLine x={100} stroke="#e10600" strokeDasharray="3 3" strokeOpacity={0.7} />
           {topNums.map((n, idx) => (
             <Line
               key={`o-${n}`}
@@ -94,7 +110,7 @@ export function TrajectoryChart({ series, serieProjecao, trajetoria }: Props) {
               name={names.get(n) ?? n}
               stroke={colorFor(n, idx)}
               dot={false}
-              strokeWidth={2.5}
+              strokeWidth={2.75}
               connectNulls
             />
           ))}
@@ -103,11 +119,11 @@ export function TrajectoryChart({ series, serieProjecao, trajetoria }: Props) {
               key={`p-${n}`}
               type="monotone"
               dataKey={`p_${n}`}
-              name={`${names.get(n) ?? n} (proj.)`}
+              name={`${names.get(n) ?? n} proj.`}
               stroke={colorFor(n, idx)}
               dot={false}
               strokeWidth={2}
-              strokeDasharray="6 4"
+              strokeDasharray="5 4"
               connectNulls
               legendType="none"
             />

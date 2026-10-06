@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { DuelHero } from "./components/DuelHero";
+import { Masthead } from "./components/Masthead";
+import { ProjectionRail } from "./components/ProjectionRail";
+import { Ticker } from "./components/Ticker";
 import { TrajectoryChart } from "./components/TrajectoryChart";
-import { colorFor, type Trajetoria } from "./lib/api";
+import type { Trajetoria } from "./lib/api";
 import {
   appendSnapshot,
   fetchConfig,
@@ -128,7 +132,6 @@ export function App() {
         .then((payload) => {
           if (cancelled) return;
           setSimPayload(payload);
-          // começa ~55% do índice da série (~69% seções) pra ver projeção no meio da noite
           const startAt = Math.max(
             0,
             Math.floor(payload.series.length * 0.55) - 1,
@@ -187,172 +190,140 @@ export function App() {
   const simMeta: SimT2Meta | null = simPayload?.meta ?? null;
   const simPoint = simPayload?.series[simIndex];
 
+  const mastMode = race.sim ? "sim" : snap ? "live" : "wait";
+  const mastMeta = race.sim
+    ? "2º turno · cenário pesquisas"
+    : codes
+      ? codes
+      : undefined;
+
+  const tickerTag = race.sim ? "SIM" : snap ? "TSE" : "DESK";
+  const tickerText = (() => {
+    if (error) return error;
+    if (race.sim && simMeta) {
+      return (
+        <>
+          <strong>
+            Flávio {simMeta.mediaValidos.flavio.toFixed(2)}% · Lula{" "}
+            {simMeta.mediaValidos.lula.toFixed(2)}%
+          </strong>
+          {" · "}
+          {simMeta.premisaAbstencao}
+          {" · "}
+          replay {simPoint?.hora?.slice(0, 5) ?? "—"}
+        </>
+      );
+    }
+    if (waiting && !snap) {
+      return (
+        <>
+          <strong>Standby 25/10</strong> · {waiting} · poll 30s · tick #{tick}
+        </>
+      );
+    }
+    if (snap) {
+      return (
+        <>
+          <strong>
+            {snap.pctSecoes.toFixed(1)}% seções · gap{" "}
+            {traj?.gapOficial == null ? "—" : `${traj.gapOficial.toFixed(1)} pp`}
+          </strong>
+          {" · linha cheia oficial · pontilhada projeção até 100%"}
+        </>
+      );
+    }
+    return "Apuração Monitor";
+  })();
+
   return (
     <>
-      <header>
-        <div>
-          <h1>Apuração Monitor</h1>
-          <div className="sub">
-            Gráfico minuto a minuto · projeção pela abertura das linhas · TSE ao vivo
-            {codes ? ` · códigos ${codes}` : ""}
-          </div>
-        </div>
-        <label>
-          <span className="sub">Corrida&nbsp;</span>
-          <select value={raceId} onChange={(e) => setRaceId(e.target.value)}>
-            {RACES.map((r) => (
-              <option key={r.id} value={r.id}>
-                {r.label}
-              </option>
-            ))}
-          </select>
-        </label>
-      </header>
+      <Masthead
+        raceId={raceId}
+        races={RACES}
+        onRaceChange={setRaceId}
+        mode={mastMode}
+        meta={mastMeta}
+      />
 
-      {error && <div className="error">{error}</div>}
+      <div className="desk">
+        {error && <p className="desk-error">{error}</p>}
 
-      {race.sim && simMeta && (
-        <div className="panel">
-          <h2>{simMeta.titulo}</h2>
-          <p className="note" style={{ marginTop: 0 }}>
-            {simMeta.nota}
-          </p>
-          <p className="note">
-            {simMeta.premisaAbstencao}. Média Palver/GERP/Futura/Veritá nos válidos: Flávio{" "}
-            {simMeta.mediaValidos.flavio.toFixed(2)}% · Lula{" "}
-            {simMeta.mediaValidos.lula.toFixed(2)}%. Da 3ª via + votos novos, ~{" "}
-            {(simMeta.transferencia.shareFlavioDoExtra * 100).toFixed(0)}% para Flávio.
-          </p>
-          {simPayload && (
-            <label style={{ display: "block", marginTop: "0.75rem" }}>
-              <span className="sub">
-                Replay da noite · {simPoint?.hora?.slice(0, 5) ?? "—"} ·{" "}
-                {simPoint?.pctSecoes.toFixed(1) ?? "—"}% seções
-              </span>
-              <input
-                type="range"
-                min={0}
-                max={simPayload.series.length - 1}
-                value={simIndex}
-                onChange={(e) => applySimIndex(simPayload, Number(e.target.value))}
-                style={{ width: "100%", marginTop: "0.35rem" }}
-              />
-            </label>
-          )}
-        </div>
-      )}
-
-      {waiting && !snap && (
-        <div className="panel">
-          <h2>Dashboard pronta para o 2º turno</h2>
-          <p className="note" style={{ marginTop: 0 }}>
-            {waiting}
-          </p>
-          <p className="note">
-            Em 25/10, a partir das 17h (horário de Brasília), esta página passa a gravar sozinha o
-            placar minuto a minuto e a projetar o % final pela trajetória das linhas. Deixe a aba
-            aberta — não precisa rodar nada no computador.
-          </p>
-          <p className="sub">Atualização automática a cada 30s · tick #{tick}</p>
-        </div>
-      )}
-
-      {snap && traj && (
-        <>
-          <div className="grid">
-            <div className="card">
-              <h2>Seções</h2>
-              <div className="pct">
-                {snap.pctSecoes.toFixed(2)}%
-                <small>
-                  {snap.secoesApuradas.toLocaleString("pt-BR")} /{" "}
-                  {snap.secoesTotal.toLocaleString("pt-BR")}
-                </small>
-              </div>
-            </div>
-            <div className="card">
-              <h2>Gap oficial</h2>
-              <div className="pct">
-                {traj.gapOficial == null ? "—" : `${traj.gapOficial.toFixed(2)} pp`}
-                <small>
-                  projetado:{" "}
-                  {traj.gapProjetado == null ? "—" : `${traj.gapProjetado.toFixed(2)} pp`}
-                </small>
-              </div>
-            </div>
-            <div className="card">
-              <h2>Status</h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
-                <span className={`badge ${traj.podeVirar ? "warn" : "ok"}`}>
-                  {traj.matematicamenteDefinido
-                    ? "Matematicamente definido"
-                    : traj.podeVirar
-                      ? "Ainda pode virar"
-                      : "Estável"}
-                </span>
-                <span className="sub">{gapLabel}</span>
-              </div>
-            </div>
-            <div className="card">
-              <h2>Atualizado</h2>
-              <div className="pct" style={{ fontSize: "1rem" }}>
-                {new Date(snap.coletadoEm).toLocaleString("pt-BR")}
-                <small>
-                  {snap.fonte} · {snap.geradoEmTse ?? "—"}
-                </small>
-              </div>
-            </div>
-          </div>
-
-          <div className="panel">
-            <h2>Gráfico da apuração (% votos × % seções)</h2>
-            {series.length < 2 ? (
-              <p className="note">
-                Coletando pontos para o gráfico… em alguns minutos a trajetória aparece. Pontos
-                nesta sessão: {series.length}.
-              </p>
-            ) : (
-              <TrajectoryChart series={series} serieProjecao={serieProjecao} trajetoria={traj} />
-            )}
-            <p className="note">
-              Linha cheia = oficial. Linha pontilhada = extrapolação até 100% das seções pela
-              inclinação e pela abertura entre 1º e 2º. Cor de referência:{" "}
-              <span style={{ color: colorFor("22", 0) }}>22</span> /{" "}
-              <span style={{ color: colorFor("13", 1) }}>13</span>.
+        {race.sim && simMeta && (
+          <div className="sim-strip">
+            <h2>{simMeta.titulo}</h2>
+            <p>{simMeta.nota}</p>
+            <p>
+              {simMeta.premisaAbstencao}. Média válidos Flávio{" "}
+              {simMeta.mediaValidos.flavio.toFixed(2)}% · Lula{" "}
+              {simMeta.mediaValidos.lula.toFixed(2)}%. Extra (3ª via + novos): ~
+              {(simMeta.transferencia.shareFlavioDoExtra * 100).toFixed(0)}% Flávio.
             </p>
           </div>
+        )}
 
-          <div className="panel">
-            <h2>Placar e projeção final</h2>
-            {traj.candidatos.map((c, idx) => {
-              const oficial = snap.candidatos.find((x) => x.numero === c.numero);
-              return (
-                <div className="cand-row" key={c.numero}>
-                  <div>
-                    <div className="cand-name">
-                      #{idx + 1} {c.nomeUrna}{" "}
-                      <span className="cand-meta">({c.numero})</span>
-                    </div>
-                    <div className="cand-meta">
-                      oficial {c.pctOficial.toFixed(2)}% · inclinação{" "}
-                      {c.inclinacao >= 0 ? "+" : ""}
-                      {c.inclinacao.toFixed(3)} pp/ponto
-                    </div>
-                  </div>
-                  <div className="nums">
-                    <div className="proj">{c.pctProjetado.toFixed(2)}% proj.</div>
-                    <div className="cand-meta">
-                      faixa {c.pctBaixo.toFixed(2)}–{c.pctAlto.toFixed(2)}%
-                      {oficial ? ` · ${oficial.votos.toLocaleString("pt-BR")} votos` : ""}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-            <p className="note">{traj.nota}</p>
+        {waiting && !snap && (
+          <div className="standby">
+            <h2>Decision desk pronto</h2>
+            <p>{waiting}</p>
+            <p>
+              Em 25/10, a partir das 17h (Brasília), o placar e a projeção por trajetória
+              passam a gravar sozinhos nesta aba — sem rodar nada no computador.
+            </p>
+            <p>Atualização a cada 30s · tick #{tick}</p>
           </div>
-        </>
-      )}
+        )}
+
+        {snap && traj && (
+          <>
+            <DuelHero snap={snap} traj={traj} />
+
+            {race.sim && simPayload && (
+              <label className="sim-scrub sim-strip">
+                <span className="label">
+                  Replay · {simPoint?.hora?.slice(0, 5) ?? "—"} ·{" "}
+                  {simPoint?.pctSecoes.toFixed(1) ?? "—"}% seções
+                </span>
+                <input
+                  type="range"
+                  min={0}
+                  max={simPayload.series.length - 1}
+                  value={simIndex}
+                  onChange={(e) => applySimIndex(simPayload, Number(e.target.value))}
+                />
+              </label>
+            )}
+
+            <div className="desk-main">
+              <section className="panel-block">
+                <div className="panel-head">
+                  <h2>Trajetória</h2>
+                  <span className="hint">% válidos × % seções</span>
+                </div>
+                <div className="panel-body">
+                  {series.length < 2 ? (
+                    <p className="panel-note" style={{ marginTop: 0 }}>
+                      Coletando pontos para o gráfico… {series.length} nesta sessão.
+                    </p>
+                  ) : (
+                    <TrajectoryChart
+                      series={series}
+                      serieProjecao={serieProjecao}
+                      trajetoria={traj}
+                    />
+                  )}
+                  <p className="panel-note">
+                    Cheia = oficial. Pontilhada = extrapolação até 100% das seções.
+                  </p>
+                </div>
+              </section>
+
+              <ProjectionRail snap={snap} traj={traj} gapLabel={gapLabel} />
+            </div>
+          </>
+        )}
+      </div>
+
+      <Ticker tag={tickerTag} text={tickerText} />
     </>
   );
 }
