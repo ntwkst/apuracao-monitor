@@ -6,8 +6,10 @@
   --foreground: 215 25% 27%;
   --card: 0 0% 100%;
   --card-foreground: 215 25% 27%;
+  /* Azul marca NTWKST (home) */
   --primary: 200 95% 35%;
   --primary-foreground: 0 0% 98%;
+  --primary-dark: 213 100% 12%; /* ~#001a3d */
   --primary-glow: 200 95% 35% / 0.2;
   --muted: 210 20% 95%;
   --muted-foreground: 215 15% 42%;
@@ -30,24 +32,26 @@
   color-scheme: dark;
   --background: 222.2 84% 4.9%;
   --foreground: 210 40% 98%;
-  --card: 222.2 84% 7.5%;
+  --card: 222.2 47% 8%;
   --card-foreground: 210 40% 98%;
-  --primary: 200 95% 45%;
+  /* Menos ciano neon: saturação mais baixa, tom navy da marca */
+  --primary: 205 72% 52%;
   --primary-foreground: 210 40% 98%;
-  --primary-glow: 200 95% 45% / 0.25;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 210 13% 78%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 200 95% 45%;
+  --primary-dark: 213 80% 16%;
+  --primary-glow: 205 72% 52% / 0.18;
+  --muted: 217.2 32.6% 14%;
+  --muted-foreground: 210 16% 72%;
+  --border: 217.2 28% 18%;
+  --input: 217.2 28% 18%;
+  --ring: 205 72% 52%;
   --destructive: 0 62.8% 40%;
   --destructive-foreground: 210 40% 98%;
-  --success: 142 65% 45%;
-  --warning: 38 92% 55%;
+  --success: 142 55% 48%;
+  --warning: 38 85% 55%;
   --shadow-card: 0 8px 24px hsl(222 84% 2% / 0.45);
-  --shadow-elegant: 0 10px 25px -5px hsl(200 95% 45% / 0.2);
-  --c22: 200 95% 55%;
-  --c13: 0 72% 60%;
+  --shadow-elegant: 0 10px 25px -5px hsl(0 0% 0% / 0.4);
+  --c22: 205 72% 58%;
+  --c13: 0 70% 62%;
 }
 
 * {
@@ -139,8 +143,8 @@ select {
   border-radius: 9999px;
   display: grid;
   place-items: center;
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background: hsl(var(--primary-dark));
+  color: #fff;
   font-weight: 700;
   font-size: 1rem;
 }
@@ -327,7 +331,11 @@ select {
 }
 
 .consensus-banner {
-  background: hsl(var(--primary));
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary-dark)),
+    hsl(var(--primary) / 0.85)
+  );
   color: hsl(var(--primary-foreground));
   font-size: 0.75rem;
   font-weight: 700;
@@ -839,4 +847,166 @@ select {
 .ticker-text strong {
   color: hsl(var(--foreground));
   font-weight: 600;
+}
+
+/* —— Rodapé (espírito ModernFooter da home) —— */
+.site-footer {
+  margin-top: 0.5rem;
+  padding: 1.5rem 1rem 2rem;
+  background: hsl(var(--background));
+  border-top: 1px solid hsl(var(--border));
+}
+
+.site-footer-inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+@media (max-width: 800px) {
+  .site-footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-footer-card {
+  background: hsl(var(--card) / 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid hsl(var(--border) / 0.55);
+  border-radius: 1.25rem;
+  padding: 1.15rem 1.25rem 1.25rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.site-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-footer-mark {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  background: hsl(var(--primary-dark));
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  box-shadow: var(--shadow-elegant);
+}
+
+.site-footer-brand h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.site-footer-tag {
+  margin: 0.1rem 0 0;
+  color: hsl(var(--muted-foreground));
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.site-footer-copy {
+  margin: 0;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.site-footer-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.25rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  background: hsl(var(--primary-dark));
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-elegant);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.site-footer-cta:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.site-footer-latin {
+  margin: auto 0 0;
+  text-align: center;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+}
+
+.site-footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  flex: 1;
+}
+
+.site-footer-cols h4 {
+  margin: 0 0 0.55rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.site-footer-cols a,
+.site-footer-cols .site-footer-muted {
+  display: block;
+  margin: 0.35rem 0;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-footer-cols a:hover {
+  color: hsl(var(--primary));
+}
+
+.site-footer-social {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid hsl(var(--border) / 0.5);
+}
+
+.site-footer-social a {
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  background: hsl(var(--primary) / 0.12);
+  color: hsl(var(--primary));
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.site-footer-social a:hover {
+  background: hsl(var(--primary) / 0.22);
+}
+
+.site-footer-legal {
+  margin: 0.75rem 0 0;
+  padding-top: 0.65rem;
+  border-top: 1px solid hsl(var(--border) / 0.45);
+  font-size: 0.72rem;
+  color: hsl(var(--muted-foreground));
 }

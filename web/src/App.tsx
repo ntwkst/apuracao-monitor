@@ -3,6 +3,7 @@ import { ConsensusCard, MethodBoard } from "./components/MethodBoard";
 import { DeskIsland } from "./components/DeskIsland";
 import { DuelHero } from "./components/DuelHero";
 import { ProjectionRail } from "./components/ProjectionRail";
+import { SiteFooter } from "./components/SiteFooter";
 import { Ticker } from "./components/Ticker";
 import { TrajectoryChart } from "./components/TrajectoryChart";
 import type { Trajetoria } from "./lib/api";
@@ -351,6 +352,7 @@ export function App() {
       </div>
 
       <Ticker tag={tickerTag} text={tickerText} />
+      <SiteFooter />
     </>
   );
 }
