@@ -16,9 +16,11 @@ interface Props {
   trajetoria: Trajetoria;
 }
 
-const GRID = "#2a2a30";
-const MUTED = "#9b9ba3";
-const TIP_BG = "#111114";
+const GRID = "hsl(217 20% 45% / 0.35)";
+const MUTED = "hsl(215 15% 50%)";
+const TIP_BG = "hsl(var(--card))";
+const TIP_FG = "hsl(var(--foreground))";
+const TIP_BORDER = "hsl(var(--border))";
 
 export function TrajectoryChart({ series, serieProjecao, trajetoria }: Props) {
   const topNums = trajetoria.candidatos.slice(0, 4).map((c) => c.numero);
@@ -73,7 +75,7 @@ export function TrajectoryChart({ series, serieProjecao, trajetoria }: Props) {
             dataKey="pctSecoes"
             type="number"
             domain={[0, 100]}
-            tick={{ fill: MUTED, fontSize: 11, fontFamily: "IBM Plex Sans" }}
+            tick={{ fill: MUTED, fontSize: 11, fontFamily: "Inter, system-ui, sans-serif" }}
             axisLine={{ stroke: GRID }}
             tickLine={{ stroke: GRID }}
             label={{
@@ -86,7 +88,7 @@ export function TrajectoryChart({ series, serieProjecao, trajetoria }: Props) {
           />
           <YAxis
             domain={["auto", "auto"]}
-            tick={{ fill: MUTED, fontSize: 11, fontFamily: "IBM Plex Sans" }}
+            tick={{ fill: MUTED, fontSize: 11, fontFamily: "Inter, system-ui, sans-serif" }}
             axisLine={{ stroke: GRID }}
             tickLine={{ stroke: GRID }}
             width={42}
@@ -94,14 +96,15 @@ export function TrajectoryChart({ series, serieProjecao, trajetoria }: Props) {
           <Tooltip
             contentStyle={{
               background: TIP_BG,
-              border: `1px solid ${GRID}`,
-              borderRadius: 0,
+              color: TIP_FG,
+              border: `1px solid ${TIP_BORDER}`,
+              borderRadius: 12,
               fontSize: 12,
-              fontFamily: "IBM Plex Sans",
+              fontFamily: "Inter, system-ui, sans-serif",
             }}
             labelFormatter={(v) => `${v}% seções`}
           />
-          <ReferenceLine x={100} stroke="#e10600" strokeDasharray="3 3" strokeOpacity={0.7} />
+          <ReferenceLine x={100} stroke="hsl(200 95% 40%)" strokeDasharray="3 3" strokeOpacity={0.75} />
           {topNums.map((n, idx) => (
             <Line
               key={`o-${n}`}

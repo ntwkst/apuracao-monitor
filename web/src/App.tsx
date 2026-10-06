@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ConsensusCard, MethodBoard } from "./components/MethodBoard";
+import { DeskIsland } from "./components/DeskIsland";
 import { DuelHero } from "./components/DuelHero";
-import { Masthead } from "./components/Masthead";
 import { ProjectionRail } from "./components/ProjectionRail";
 import { Ticker } from "./components/Ticker";
 import { TrajectoryChart } from "./components/TrajectoryChart";
@@ -71,7 +71,7 @@ const RACES: RaceOpt[] = [
 ];
 
 export function App() {
-  const [raceId, setRaceId] = useState(RACES[0]!.id);
+  const [raceId, setRaceId] = useState(simRaceKey());
   const race = RACES.find((r) => r.id === raceId) ?? RACES[0]!;
   const [snap, setSnap] = useState<OfficialSnapshot | null>(null);
   const [series, setSeries] = useState<SeriesPoint[]>([]);
@@ -134,7 +134,7 @@ export function App() {
 
   useEffect(() => {
     void fetchConfig(2)
-      .then((c) => setCodes(`pres=${c.presidente} est=${c.estadual} (${c.ciclo})`))
+      .then((c) => setCodes(`pres=${c.presidente} est=${c.estadual}`))
       .catch(() => setCodes(""));
   }, []);
 
@@ -217,9 +217,7 @@ export function App() {
   const mastMode = race.sim ? "sim" : snap ? "live" : "wait";
   const mastMeta = race.sim
     ? "2º turno · cenário pesquisas"
-    : codes
-      ? codes
-      : undefined;
+    : codes || undefined;
 
   const tickerTag = race.sim ? "SIM" : snap ? "TSE" : "DESK";
   const tickerText = (() => {
@@ -234,8 +232,6 @@ export function App() {
               : `Previsto ${c.nomeLider ?? "—"} · ${c.placar}`}
           </strong>
           {" · "}
-          {simMeta.premisaAbstencao}
-          {" · "}
           replay {simPoint?.hora?.slice(0, 5) ?? "—"}
         </>
       );
@@ -243,7 +239,7 @@ export function App() {
     if (waiting && !snap) {
       return (
         <>
-          <strong>Standby 25/10</strong> · {waiting} · poll 30s · tick #{tick}
+          <strong>Standby 25/10</strong> · {waiting} · tick #{tick}
         </>
       );
     }
@@ -257,16 +253,15 @@ export function App() {
               ? `consenso empate ${c.placar}`
               : `previsto ${c.nomeLider ?? "—"} (${c.placar})`}
           </strong>
-          {" · 4 métodos + card consenso"}
         </>
       );
     }
-    return "Apuração Monitor";
+    return "Apuração Monitor · NTWKST";
   })();
 
   return (
     <>
-      <Masthead
+      <DeskIsland
         raceId={raceId}
         races={RACES}
         onRaceChange={setRaceId}
@@ -284,8 +279,7 @@ export function App() {
             <p>
               {simMeta.premisaAbstencao}. Média válidos Flávio{" "}
               {simMeta.mediaValidos.flavio.toFixed(2)}% · Lula{" "}
-              {simMeta.mediaValidos.lula.toFixed(2)}%. Extra (3ª via + novos): ~
-              {(simMeta.transferencia.shareFlavioDoExtra * 100).toFixed(0)}% Flávio.
+              {simMeta.mediaValidos.lula.toFixed(2)}%.
             </p>
           </div>
         )}
@@ -295,8 +289,8 @@ export function App() {
             <h2>Decision desk pronto</h2>
             <p>{waiting}</p>
             <p>
-              Em 25/10, a partir das 17h (Brasília), o placar e a projeção por trajetória
-              passam a gravar sozinhos nesta aba — sem rodar nada no computador.
+              Em 25/10, a partir das 17h (Brasília), o placar e as projeções passam a
+              gravar sozinhos nesta aba.
             </p>
             <p>Atualização a cada 30s · tick #{tick}</p>
           </div>
@@ -304,12 +298,16 @@ export function App() {
 
         {snap && traj && ensemble && (
           <>
+            {/* Previsão primeiro — pedido do usuário */}
+            <ConsensusCard consensus={ensemble.consensus} />
+            <MethodBoard methods={ensemble.methods} />
+
             <DuelHero snap={snap} traj={traj} />
 
             {race.sim && simPayload && (
               <label className="sim-scrub sim-strip">
                 <span className="label">
-                  Replay · {simPoint?.hora?.slice(0, 5) ?? "—"} ·{" "}
+                  Replay / apuração · {simPoint?.hora?.slice(0, 5) ?? "—"} ·{" "}
                   {simPoint?.pctSecoes.toFixed(1) ?? "—"}% seções
                 </span>
                 <input
@@ -348,9 +346,6 @@ export function App() {
 
               <ProjectionRail snap={snap} traj={traj} gapLabel={gapLabel} />
             </div>
-
-            <MethodBoard methods={ensemble.methods} />
-            <ConsensusCard consensus={ensemble.consensus} />
           </>
         )}
       </div>

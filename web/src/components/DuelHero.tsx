@@ -73,7 +73,7 @@ export function DuelHero({ snap, traj }: Props) {
         <div>
           Seções <strong>{snap.pctSecoes.toFixed(1)}%</strong>
           <div className="secoes-meter" aria-hidden>
-            <span style={{ width: `${Math.min(100, snap.pctSecoes)}%` }} />
+            <span style={{ width: `${Math.min(100, snap.pctSecoes)}%`, background: "hsl(var(--primary))" }} />
           </div>
           <div style={{ marginTop: "0.25rem" }}>
             {snap.secoesApuradas.toLocaleString("pt-BR")} /{" "}

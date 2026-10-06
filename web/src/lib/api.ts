@@ -54,9 +54,10 @@ export interface AtualResponse {
   serieProjecao: SeriesPoint[];
 }
 
+/** 22 = primary NTWKST (azul); 13 = contraste partidário */
 const COLORS: Record<string, string> = {
-  "22": "#3b82f6",
-  "13": "#ef4444",
+  "22": "#048cb0",
+  "13": "#dc2626",
   "70": "#a78bfa",
   "50": "#f59e0b",
   "55": "#14b8a6",
