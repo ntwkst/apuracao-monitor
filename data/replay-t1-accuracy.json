@@ -1,0 +1,76 @@
+{
+  "fonte": "LinhaDoTempo turicas (TSE), preferindo Soma UFs",
+  "final": {
+    "flavio": 47.03,
+    "lula": 45.16
+  },
+  "firstWinnerCorrectMin": 57.2,
+  "firstWithin1Min": 187.133,
+  "firstWithin05Min": 197.717,
+  "lockWinnerMin": 57.2,
+  "lockWithin1Min": 187.133,
+  "firstWinnerCorrect": {
+    "label": "17:57:12 · 10.92% seções · 57 min",
+    "row": {
+      "hora": "17:57:12",
+      "minutesFromStart": 57.2,
+      "pctSecoes": 10.92,
+      "flavio": 51.09,
+      "lula": 40.67,
+      "curY": 2.98,
+      "renan": 2.3,
+      "caiado": 2.4,
+      "origem": "Nacional TSE"
+    },
+    "projF": 51.37771520514883,
+    "projL": 40.899034593724856
+  },
+  "firstWithin1": {
+    "label": "20:07:08 · 85.43% seções · 187 min",
+    "row": {
+      "hora": "20:07:08",
+      "minutesFromStart": 187.133,
+      "pctSecoes": 85.43,
+      "flavio": 48.44,
+      "lula": 43.52,
+      "curY": 2.94,
+      "renan": 2.31,
+      "caiado": 2.27,
+      "origem": "Soma UFs + exterior"
+    },
+    "projF": 48.01948966455946,
+    "projL": 44.470899711744075
+  },
+  "lockWinner": {
+    "label": "17:57:12 · 10.92% · 57 min",
+    "row": {
+      "hora": "17:57:12",
+      "minutesFromStart": 57.2,
+      "pctSecoes": 10.92,
+      "flavio": 51.09,
+      "lula": 40.67,
+      "curY": 2.98,
+      "renan": 2.3,
+      "caiado": 2.4,
+      "origem": "Nacional TSE"
+    },
+    "projF": 51.37771520514883,
+    "projL": 40.899034593724856
+  },
+  "lockWithin1": {
+    "label": "20:07:08 · 85.43% · 187 min",
+    "row": {
+      "hora": "20:07:08",
+      "minutesFromStart": 187.133,
+      "pctSecoes": 85.43,
+      "flavio": 48.44,
+      "lula": 43.52,
+      "curY": 2.94,
+      "renan": 2.31,
+      "caiado": 2.27,
+      "origem": "Soma UFs + exterior"
+    },
+    "projF": 48.01948966455946,
+    "projL": 44.470899711744075
+  }
+}
